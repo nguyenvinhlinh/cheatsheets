@@ -1,0 +1,28 @@
+** Make a new box 
+   #+BEGIN_SRC shell
+   vagrant init
+   #+END_SRC
+** Installing a box
+*** Add box from remote repository 
+   #+BEGIN_SRC shell
+   vagrant box add _box_name
+   #+END_SRC
+*** Add box from local file
+   #+BEGIN_SRC shell
+   vagrant box add box_file_path
+   #+END_SRC
+** Specify provider virtualbox/libvirt
+   #+BEGIN_SRC shell
+   vagrant up --provider=virtualbox
+   #+END_SRC
+** Install vbguest and update 
+   #+BEGIN_SRC shell
+   vagrant plugin install vagrant-vbguest;
+   vagrant vbguest;
+   #+END_SRC
+** Setup sync folder for fedora cloud base
+***  Got a trouble when work with fedora cloud base,  _/vagrant_ directory does not sync. Here is solution
+   #+BEGIN_SRC ruby
+   config.vbguest.installer = VagrantVbguest::Installers::RedHat
+   config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+   #+END_SRC
