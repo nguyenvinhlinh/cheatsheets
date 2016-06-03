@@ -1,36 +1,33 @@
-*** Create user
-#+BEGIN_SRC sql
-CREATE USER username;
-#+END_SRC
-
-*** Create user with ability to createdb;
-#+BEGIN_SRC sql
-CREATE USER username createdb;
-#+END_SRC
-
-***  Alter the role of user;
-#+BEGIN_SRC sql
-ALTER USER username createdb;
-#+END_SRC
-*** Export the data from the database 
-#+BEGIN_SRC shell
-pg_dump -O -x db_name > output.sql
-#+END_SRC
-*** Import the data to the databaes
-#+BEGIN_SRC shell
-psql db_name < output.sql
-#+END_SRC
-*** View currrent database in psql
-#+BEGIN_SRC sql
-select * from current_database();
-#+END_SRC
-
-*** View a list of database 
-#+BEGIN_SRC sql
-\l
-#+END_SRC
-*** Connect/select to particular database
-#+BEGIN_SRC sql
-\c database_name
-#+END_SRC
+** Create user
+  #+BEGIN_SRC sql
+  CREATE USER username;
+  #+END_SRC
+** Create user with ability to createdb;
+  #+BEGIN_SRC sql
+  CREATE USER username createdb;
+  #+END_SRC
+**  Alter the role of user;
+  #+BEGIN_SRC sql
+  ALTER USER username createdb;
+  #+END_SRC
+** Export the data from the database 
+  #+BEGIN_SRC shell
+  pg_dump -O -x db_name > output.sql
+  #+END_SRC
+** Import the data to the databaes
+  #+BEGIN_SRC shell
+  psql db_name < output.sql
+  #+END_SRC
+** View currrent database in psql
+  #+BEGIN_SRC sql
+  select * from current_database();
+  #+END_SRC
+** View a list of database 
+  #+BEGIN_SRC sql
+  \l
+  #+END_SRC
+** Connect/select to particular database
+  #+BEGIN_SRC sql
+  \c database_name
+  #+END_SRC
     
