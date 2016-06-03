@@ -1,0 +1,67 @@
+* Mysql
+** How to start mysql server on Fedora
+   #+BEGIN_SRC shell
+   systemctl start mysqld.service
+   #+END_SRC
+** How to connect to database server using mysql client
+   #+BEGIN_SRC shell
+   mysql -u admin -h 127.0.0.1 -P 3306 -p
+   #+END_SRC
+** How to know the password of root user the first time installing 
+   #+BEGIN_SRC shell
+   sudo grep 'temporary password' /var/log/mysqld.log
+   #+END_SRC
+
+** How to create new user
+   #+BEGIN_SRC sql
+   CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin12345';
+   #+END_SRC
+** How to change password
+   #+BEGIN_SRC sql
+   ALTER USER 'root'@'localhost' IDENTIFIED BY 'G49,[XzFg$c#kz6';
+   #+END_SRC
+** Grant user permission
+*** Permissions
+    1. ALL PRIVILEGES- as we saw previously, this would allow a MySQL user all access to a designated database (or if no database is selected, across the system)
+    2. CREATE- allows them to create new tables or databases
+    3. DROP- allows them to them to delete tables or databases
+    4. DELETE- allows them to delete rows from tables
+    5. INSERT- allows them to insert rows into tables
+    6. SELECT- allows them to use the Select command to read through databases
+    7. UPDATE- allow them to update table rows
+    8. GRANT OPTION- allows them to grant or remove other users' privileges
+*** Grant all permission
+    #+BEGIN_SRC sql
+    GRANT ALL PRIVILEGES ON * . * TO 'admin'@'localhost';
+    FLUSH PRIVILEGES;
+    #+END_SRC
+
+*** Grant other permission 
+    #+BEGIN_SRC sql
+    GRANT [type of permission] ON [database name].[table name] TO ‘[username]’@'localhost’;
+    FLUSH PRIVILEGES;
+    #+END_SRC
+
+*** Revoke permission 
+    #+BEGIN_SRC sql
+    REVOKE [type of permission] ON [database name].[table name] FROM ‘[username]’@‘localhost’;
+    FLUSH PRIVILEGES;
+    #+END_SRC
+** Change the mysql variables
+   #+BEGIN_SRC sql
+   SET GLOBAL validate_password_policy=LOW;
+   //note that: validate_password_policy is an example variable name
+   #+END_SRC
+** How to create new database
+   #+BEGIN_SRC sql
+   CREATE DATABASE silverlink;
+   #+END_SRC
+** How to import to database
+   #+BEGIN_SRC shell
+   mysql -u admin -h localhost silverlink < dump.sql;
+   #+END_SRC
+** How to select database
+  #+BEGIN_SRC sql
+  use database_name;
+  #+END_SRC
+   
