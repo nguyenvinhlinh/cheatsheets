@@ -23,6 +23,42 @@
 ** Setup sync folder for fedora cloud base
 ***  Got a trouble when work with fedora cloud base,  _/vagrant_ directory does not sync. Here is solution
    #+BEGIN_SRC ruby
+   config.vbguest.auto_update = true
+   config.vbguest.auto_reboot = true
    config.vbguest.installer = VagrantVbguest::Installers::RedHat
    config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
    #+END_SRC
+** Setup path to provision file
+  #+BEGIN_SRC ruby
+  config.vm.provision :shell, path: "boostrap.sh"
+  #+END_SRC
+** Setup port forwarding 
+   #+BEGIN_SRC ruby
+   config.vm.network :forwarded_port, guest: 80, host: 4567
+   #+END_SRC
+** Setup multiple machine
+*** Initial
+    #+BEGIN_SRC ruby
+    Vagrant.configure(2) do |config|
+      config.vm.define "web" do |w|
+        w.vm.box = "ubuntu/trusty64"
+        w.vm.provision :shell, path: "web_provision.sh"
+      end
+
+      config.vm.define "db" do |db|
+        db.vm.box = "bento/centos-6.7"
+        db.vm.provision :shell, path: "db_provision.sh"
+      end 
+    end
+    #+END_SRC
+*** Start the machine
+#+BEGIN_SRC shell
+vagrant up web #start the web machine
+vagrant up db  #start the db machine
+vagrant up     #start all machine
+#+END_SRC
+*** SSH to machine 
+#+BEGIN_SRC shell
+vagrant ssh web #ssh to the web machine
+vagrant ssh db  #ssh to the db machine
+#+END_SRC
