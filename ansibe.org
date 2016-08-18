@@ -1,0 +1,28 @@
+** Hosts file sample with full attributes
+   #+BEGIN_SRC config
+   ubuntu ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222 ansible_ssh_user=vagrant ansible_ssh_private_key_file=file_path
+   #+END_SRC
+
+** ansible.cfg support for hosts file
+*** ansible.cfg
+   #+BEGIN_SRC config
+   [defaults]
+   hostfile = hosts
+   remote_user = vagrant
+   private_key_file = /home/nguyenvinhlinh/Ansible_learn/box/.vagrant/machines/default/virtualbox/private_key
+   host_key_checking = False
+   #+END_SRC
+*** hosts
+    #+BEGIN_SRC config
+    ubuntu ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
+    #+END_SRC
+    
+** How to find the network interface of host machine 
+   #+BEGIN_SRC shell
+   ifconfig -a
+   #+END_SRC
+** How to set up public network for the vm via bridge network interface 
+   #+BEGIN_SRC ruby
+   config.vm.network "public_network", bridge: "wlp4s0_network_inteface"
+   #+END_SRC
+

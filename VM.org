@@ -1,0 +1,9 @@
+
+
+systemctl restart systemd-modules-load.service
+systemctl restart systemd-modules-load.service
+
+yum install kmod-VirtualBox-$(uname -r) kmod-VirtualBox
+
+
+https://ask.fedoraproject.org/en/question/68083/is-something-serious-if-systemctl-status-systemd-modules-loadservice-says-its-failed/

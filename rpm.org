@@ -1,0 +1,4 @@
+** How to list all installed packages
+   #+BEGIN_SRC shell
+   rpm --query --all
+   #+END_SRC

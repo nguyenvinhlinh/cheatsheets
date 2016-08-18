@@ -62,3 +62,12 @@ vagrant up     #start all machine
 vagrant ssh web #ssh to the web machine
 vagrant ssh db  #ssh to the db machine
 #+END_SRC
+** Vagrant ssh in long-hand
+*** Find the vagrant ssh-config 
+   #+BEGIN_SRC shell
+   vagran ssh-config
+   #+END_SRC
+*** SSH manually
+   #+BEGIN_SRC shell
+   ssh vagrant@127.0.0.1 -p 2222 -i path_to_the_key
+   #+END_SRC

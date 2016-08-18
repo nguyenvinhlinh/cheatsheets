@@ -6,6 +6,10 @@
   #+BEGIN_SRC sql
   CREATE USER username createdb;
   #+END_SRC
+** Change password of user
+#+BEGIN_SRC sql
+alter user ABC encrypted password 'ABC_password'
+#+END_SRC
 **  Alter the role of user;
   #+BEGIN_SRC sql
   ALTER USER username createdb;
@@ -13,6 +17,7 @@
 ** Export the data from the database 
   #+BEGIN_SRC shell
   pg_dump -O -x db_name > output.sql
+  pg_dump -h 127.0.0.1 -p 15432 -d iea_dev -x db_name > file_export.sql
   #+END_SRC
 ** Import the data to the databaes
   #+BEGIN_SRC shell

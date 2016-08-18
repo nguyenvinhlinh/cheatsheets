@@ -1,0 +1,4 @@
+** How to find package which provide particular library name
+   #+BEGIN_SRC shell
+   dnf provides libncurses.so.5 
+   #+END_SRC

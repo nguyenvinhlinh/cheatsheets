@@ -1,0 +1,27 @@
+** How to add an uploading/static directory 
+*** Assign the path of new static directory
+    This is a new configured line added in the *config/dev.exs*
+    #+BEGIN_SRC elixir
+    config :iea, :upload_dir, "/opt/iea/upload" 
+    #+END_SRC
+*** Config endpoint to load static resource from new directory
+    This is a new configured line added in the *source/lib/enpoint.ex*
+    #+BEGIN_SRC elixir
+    plug Plug.Static,
+         at: "/upload", from: Application.get_env(:iea, :upload_dir)
+    #+END_SRC
+** How to config webpack instead of brunch
+   http://www.phoenixframework.org/docs/static-assets#section-phoenix-without-brunch
+   https://github.com/nguyenvinhlinh/ChatApp_Phoenix_React_Webpack/blob/master/webpack.config.js
+   
+** How to deploy phoenix app simple way
+*** Make prod.exs
+*** Make prod.secret.exs 
+*** Install npm 
+*** Build assets with bruch `./node/.bin/brunch build --production
+*** compile in prod mode `MIX_ENV=prod mix compile`
+*** Digest asset file: `mix phoenix.digest`
+*** Run the server `MIX_ENV=prod PORT=4000 mix phoenix.server` (1)
+*** Run the server (console)  `MIX_ENV=prod PORT=4000 iex -S mix phoenix.server` (2)
+*** Run the server (detached)  `MIX_ENV=prod PORT=4000 elixir --detached  -S mix do compile, phoenix.server` (3)
+

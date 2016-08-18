@@ -1,0 +1,15 @@
+** How to build a gem to install to local
+   #+BEGIN_SRC shell
+   gem build gem_spec_file.gemspec > generate a new file gem_name.gem
+   gem install gem_name.gem 
+   #+END_SRC
+
+** How to shortcut long module/class name
+   #+BEGIN_SRC ruby
+   class XXX
+     ShortCut = ::File
+     def method_x
+       ShortCut.expand_path('abc')
+     end
+   end
+   #+END_SRC

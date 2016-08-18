@@ -1,0 +1,36 @@
+** How to debug in Elixir
+   #+BEGIN_SRC elixir
+   require IEx
+   IEx.pry #> to point need to be inspect
+   respawn #> to continue
+   #+END_SRC
+
+** Difference between .exs and .ex
+   - exs: script file
+   - ex: compile file
+** Require, Import, Use
+- _Require_: Use when the module got macro function,
+#+BEGIN_SRC elixir
+require Integer
+Integer.is_even(1)
+#+END_SRC
+- _Import_: Import function/macro from module to current module. _Importing_ will 
+require a module automatically, as a consequence, you can have run any function if
+prefix with importing MODULE.
+
+#+BEGIN_SRC elixir
+import Integer, only: [is_even: 1]
+is_even(2)
+Integer.is_odd(2)
+#+END_SRC 
+- _Use_: _Use_ requires a module, then run a callback function of the module.
+#+BEGIN_SRC Elixir
+defmodule A do
+  use Feature, option: :value
+end
+# It's then equal to
+defmodule A do
+  require Feature
+  Feature.__using__(option: :value)
+end
+#+END_SRC

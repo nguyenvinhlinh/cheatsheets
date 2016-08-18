@@ -1,0 +1,22 @@
+** How to get sha256 sum of file
+#+BEGIN_SRC shell
+sha256sum path_to_file
+#+END_SRC
+** How to add new user 
+#+BEGIN_SRC shell
+useradd kmt
+passwd kmt
+#+END_SRC
+** How to extract tar.gz 
+#+BEGIN_SRC shell
+tar -xf abc.tar.gz
+#+END_SRC
+** How to reload the bashrc, zshrc file
+#+BEGIN_SRC shell
+source .bashrc
+source .zshrc
+#+END_SRC
+** How to open a port with firewall-cmd
+#+BEGIN_SRC shell
+firewall-cmd --permanent add-port=8888/tcp
+#+END_SRC
