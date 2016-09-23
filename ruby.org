@@ -1,7 +1,7 @@
 ** How to build a gem to install to local
    #+BEGIN_SRC shell
    gem build gem_spec_file.gemspec > generate a new file gem_name.gem
-   gem install gem_name.gem 
+   gem install gem_name.gem
    #+END_SRC
 
 ** How to shortcut long module/class name
@@ -13,3 +13,7 @@
      end
    end
    #+END_SRC
+** Regenerate /bin library for example rails
+#+BEGIN_SRC shell
+bundle install --binstubs
+#+END_SRC

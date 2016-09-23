@@ -1,8 +1,8 @@
-** How to add an uploading/static directory 
+** How to add an uploading/static directory
 *** Assign the path of new static directory
     This is a new configured line added in the *config/dev.exs*
     #+BEGIN_SRC elixir
-    config :iea, :upload_dir, "/opt/iea/upload" 
+    config :iea, :upload_dir, "/opt/iea/upload"
     #+END_SRC
 *** Config endpoint to load static resource from new directory
     This is a new configured line added in the *source/lib/enpoint.ex*
@@ -13,15 +13,56 @@
 ** How to config webpack instead of brunch
    http://www.phoenixframework.org/docs/static-assets#section-phoenix-without-brunch
    https://github.com/nguyenvinhlinh/ChatApp_Phoenix_React_Webpack/blob/master/webpack.config.js
-   
+
 ** How to deploy phoenix app simple way
 *** Make prod.exs
-*** Make prod.secret.exs 
-*** Install npm 
+*** Make prod.secret.exs
+*** Install npm
 *** Build assets with bruch `./node/.bin/brunch build --production
 *** compile in prod mode `MIX_ENV=prod mix compile`
 *** Digest asset file: `mix phoenix.digest`
 *** Run the server `MIX_ENV=prod PORT=4000 mix phoenix.server` (1)
 *** Run the server (console)  `MIX_ENV=prod PORT=4000 iex -S mix phoenix.server` (2)
 *** Run the server (detached)  `MIX_ENV=prod PORT=4000 elixir --detached  -S mix do compile, phoenix.server` (3)
-
+** How to deploy phoenix app the hard way
+*** NOTES
+- For _ANY_ commands, It's need to have  /MIX_ENV=prod/
+- It's important to make sure that the dependencies lastest and compile
+- Change version in /mix.exs/ to mark as a new release
+*** How to make release
+1. Add EXRM to mix.exs https://github.com/bitwalker/exrm
+#+BEGIN_SRC elixir
+defp deps do
+    [{:exrm, "~> x.x.x"}]
+end
+#+END_SRC
+2. Fetch lib, compile, do digest
+#+BEGIN_SRC shell
+MIX_ENV=prod mix do dept.get, compile
+MIX_ENV=prod mix phoenix.digest
+#+END_SRC
+3. Generate release
+#+BEGIN_SRC shell
+MIX_ENV=prod mix release
+#+END_SRC
+*** How to deploy
+#+BEGIN_SRC shell
+bash rel/app_name/bin/app_name start/stop
+#+END_SRC
+*** How to do hot upgrade while running
+#+BEGIN_SRC shell
+bash rel/app_name/bin/app_name upgrade app_version
+#+END_SRC
+** How to do i18n with gettext
+*** Extract all i18n message, generate po template file 
+#+BEGIN_SRC shell
+mix gettext.extract
+#+END_SRC
+*** Generate locale folder with language label
+#+BEGIN_SRC shell
+mix gettext.merge /priv/gettext --locale vn
+#+END_SRC
+*** How to update .po file when update .po template file
+#+BEGIN_SRC shell
+mix gettext.merge priv/gettext
+#+END_SRC

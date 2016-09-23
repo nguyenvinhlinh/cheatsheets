@@ -34,3 +34,15 @@ defmodule A do
   Feature.__using__(option: :value)
 end
 #+END_SRC
+
+
+** TODO
+- research on process, note them all down 
+- research on How elixir save STATE 
+
+
+
+** DRAFT
+** What is agent ?
+First of all, Agent is a name of module. By using Agent, you can make a 
+separated process which store state. The state can be share among another process. 

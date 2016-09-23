@@ -1,0 +1,6 @@
+** Emphasis and monospace
+- Bold *bold*
+- Italic /italic/
+- Underline _underline_
+- Verbatim =verbatim=
+- Code ~code~
