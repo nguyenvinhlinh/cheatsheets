@@ -54,7 +54,7 @@ bash rel/app_name/bin/app_name start/stop
 bash rel/app_name/bin/app_name upgrade app_version
 #+END_SRC
 ** How to do i18n with gettext
-*** Extract all i18n message, generate po template file 
+*** Extract all i18n message, generate po template file
 #+BEGIN_SRC shell
 mix gettext.extract
 #+END_SRC
@@ -66,3 +66,12 @@ mix gettext.merge /priv/gettext --locale vn
 #+BEGIN_SRC shell
 mix gettext.merge priv/gettext
 #+END_SRC
+
+** Notes of EXRM, while hot upgrade/downgrade app
+*** Developers must do hot upgrade/downgrade step by step
+   (1.0) -> (2.0) -> (3.0)  :OK
+   (1.0) -> (3.0)           :ERROR
+   (3.0) -> (2.0) -> (1.0)  :OK
+   (3.0) -> (1.0)           :ERROR
+*** Re-release issue
+    (1.0) -> (2.0)
