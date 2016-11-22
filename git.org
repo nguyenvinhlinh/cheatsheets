@@ -1,0 +1,4 @@
+** How to git clone to a directory
+   #+BEGIN_SRC shell
+   git clone ssh://git@gitlab.cogini.com:1026/kmt/kmt-backend.git dir_name
+   #+END_SRC

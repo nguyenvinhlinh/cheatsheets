@@ -1,0 +1,22 @@
+** How to build an image
+   #+BEGIN_SRC shell
+   docker build -t _image_name_ .
+   #+END_SRC
+** How to run an image
+   #+BEGIN_SRC shell
+   docker run _image_name_
+
+   #+END_SRC
+** How to remove docker image
+   #+BEGIN_SRC shell
+   docker rmi -f image_name
+   #+END_SRC
+** How to list all container/process of docker 
+   #+BEGIN_SRC shell
+   docker ps;  -> List running process
+   docker ps -a -> List all process
+   #+END_SRC
+** How to access to command line env of docker container
+   #+BEGIN_SRC shell
+   docker exec -it _image_name_ /bin/bash
+   #+END_SRC

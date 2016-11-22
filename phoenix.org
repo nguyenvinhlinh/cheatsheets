@@ -75,3 +75,10 @@ mix gettext.merge priv/gettext
    (3.0) -> (1.0)           :ERROR
 *** Re-release issue
     (1.0) -> (2.0)
+** How to do composable query in ecto
+   #+BEGIN_SRC elixir
+   query1 = from p in Post
+   query2 = from p in query1, where: p.published == true
+   query3 = from p in query2, where: ilike(p.name, "%a%")
+   Repo.all(query3)
+   #+END_SRC

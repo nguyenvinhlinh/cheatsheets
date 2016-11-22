@@ -2,3 +2,7 @@
    #+BEGIN_SRC text
    C-u 0 M-x byte-recompile-directory
    #+END_SRC
+** Undo and Redo in emacs
+   To `undo` a thing there is _M-x undo_
+   To `redo` a thing there is _C-g M-x undo_
+

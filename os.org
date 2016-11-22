@@ -19,6 +19,7 @@ source .zshrc
 ** How to open a port with firewall-cmd
 #+BEGIN_SRC shell
 firewall-cmd --permanent add-port=8888/tcp
+firewall-cmd --reload
 #+END_SRC
 ** How to open internet for centos
 #+BEGIN_SRC shell
@@ -31,4 +32,23 @@ dhclient -v
 #+BEGIN_SRC shell
 apt-cache policy elixir
 #+END_SRC
+** How to change password
+*** Current user `passwd`
+*** Another user `passwd user_name`
+   
+** How to list all version of package (yum)
+#+BEGIN_SRC shell
+yum --showduplicates list httpd
+#+END_SRC
+** How to install package with specify version(yum)
+yum install httpd-version
+** How to know which package we need to install given command/description
+#+BEGIN_SRC shell
+yum whatprovides autoconf automake xxxx
+#+END_SRC
+** How to ignore kernel when do upgrade system with dnf (dnf upgrade)
+   Edit file /etc/dnf/dnf.conf
+   #+BEGIN_SRC conf
+   exclude=kernel* 
+   #+END_SRC
 * KEYSCAN ISSUE gather all public key or not ??????

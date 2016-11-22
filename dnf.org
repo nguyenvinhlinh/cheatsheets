@@ -2,3 +2,7 @@
    #+BEGIN_SRC shell
    dnf provides libncurses.so.5 
    #+END_SRC
+** How to know where package installed? 
+#+BEGIN_SRC shell
+rpm -ql package-name
+#+END_SRC

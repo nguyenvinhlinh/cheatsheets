@@ -71,3 +71,10 @@ vagrant ssh db  #ssh to the db machine
    #+BEGIN_SRC shell
    ssh vagrant@127.0.0.1 -p 2222 -i path_to_the_key
    #+END_SRC
+** How to fix  "the filesystem "vboxsf" is not available"
+https://github.com/fideloper/Vaprobash/issues/92
+** Build command not found 
+#+BEGIN_SRC shell
+sudo apt-get install build-essential 
+yum groupinstall "Development Tools"
+#+END_SRC

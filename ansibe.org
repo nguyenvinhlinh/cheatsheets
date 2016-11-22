@@ -26,3 +26,8 @@
    config.vm.network "public_network", bridge: "wlp4s0_network_inteface"
    #+END_SRC
 
+** How to fix error: "sudo: a password is required"
+   #+BEGIN_SRC shell
+   ansible-playbook 2_setup.yaml --ask-sudo-pass
+   #+END_SRC
+   This will prompt password of sudo users
