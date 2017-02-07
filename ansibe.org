@@ -31,3 +31,29 @@
    ansible-playbook 2_setup.yaml --ask-sudo-pass
    #+END_SRC
    This will prompt password of sudo users
+** Ansible important files
+*** ansible.cfg
+- Store information of roles and hosts metadata(file path only)
+#+BEGIN_SRC txt
+[defaults]
+hostfile = /home/vagrant/inventory.ini
+roles_path = /home/vagrant/management_node/roles
+#+END_SRC
+*** inventory.ini
+- Store data about address of machine (db machine, application deploying machine) in 
+group or in indivudual.
+#+BEGIN_SRC txt
+[kmt]
+192.168.1.130
+#+END_SRC
+*** roles.yml
+- Store a list of prebuild role which gonna be fetch from the internet on purpose to not 
+reinvent the wheel, for example installing nodejs, postgres, set role/group on os
+#+BEGIN_SRC yaml
+- src: geerlingguy.nodejs
+  version: 3.3.0
+#+END_SRC
+** How to test connection between anisble node and deploy node, ping module 
+   #+BEGIN_SRC shell
+   ansible node_name -m ping -u username_on_node (--ask-pass if need)
+   #+END_SRC

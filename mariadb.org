@@ -1,0 +1,24 @@
+** How to connect to database via terminal
+#+BEGIN_SRC bashc
+mysql -u user_name -h host_address -P port_number -p -D database_name 
+#+END_SRC
+
+** How to list all database
+#+BEGIN_SRC mariadb
+show databases;
+#+END_SRC
+
+** How to list all table of current database
+#+BEGIN_SRC mariadb
+show tables;
+#+END_SRC
+** How to connect/user a database
+#+BEGIN_SRC mariadb
+use database_name;
+#+END_SRC
+** How to view schema of table
+#+BEGIN_SRC mariadb
+desc table_name;
+#+END_SRC
+
+

@@ -17,3 +17,9 @@
 #+BEGIN_SRC shell
 bundle install --binstubs
 #+END_SRC
+** How to automatic change ruby environment based on project ?
+- Make a file `.versions.conf` in project directory with content
+#+BEGIN_SRC txt
+ruby=ruby-2.1.10   #ruby_version
+ruby-gemset=vetter #ruby_gemset
+#+END_SRC

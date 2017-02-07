@@ -35,6 +35,11 @@ defmodule A do
 end
 #+END_SRC
 
+** How to apply plug for particular function 
+   #+BEGIN_SRC elixir
+   plug :check_product_owner when action in [:create, :delete]
+   #+END_SRC
+** How to make a simple macro 
 
 ** TODO
 - research on process, note them all down 

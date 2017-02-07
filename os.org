@@ -51,4 +51,17 @@ yum whatprovides autoconf automake xxxx
    #+BEGIN_SRC conf
    exclude=kernel* 
    #+END_SRC
+** How to swap version of java 
+- Download favor java from Oracle website
+#+BEGIN_SRC shell
+sudo alternatives --config java
+#+END_SRC
+- Choose prefer java version.
+** Where is the config file of ssh 
+   /etc/ssh/ssh_config
+** How to restart ssh
+   #+BEGIN_SRC shell
+   service sshd restart
+   #+END_SRC
+   
 * KEYSCAN ISSUE gather all public key or not ??????
