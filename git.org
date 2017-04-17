@@ -2,3 +2,8 @@
    #+BEGIN_SRC shell
    git clone ssh://git@gitlab.cogini.com:1026/kmt/kmt-backend.git dir_name
    #+END_SRC
+** How to delete a branch remote and local
+   #+BEGIN_SRC shell
+   git push origin --delete branch_name #remote 
+   git branch --delete branch_name      #local 
+   #+END_SRC

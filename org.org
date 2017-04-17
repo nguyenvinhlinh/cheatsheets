@@ -4,3 +4,8 @@
 - Underline _underline_
 - Verbatim =verbatim=
 - Code ~code~
+** Table Org mode
+*** How to show the column and row index:  C-c }
+*** How to know position of cursor: C-c ?
+*** How to apply a formula at cursor : C-c C-c    
+*** How to reapply all formular: 

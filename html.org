@@ -1,0 +1,10 @@
+** What is shadow dom?
+** What can shadow dom do?
+   It provides encapslutation for DOM and CSS, which means that it ensures
+   the CSS of current _element_ does not affect and be affected by other in the _document_.
+** Which problem can shadow dom solve?
+   In the big web app, there might be disorganized css, not naming carefuly.
+   As a consequence, a style of this tag (ex. p) declared in section A which
+   then can affect appearance of the same tag name at section B on web page.
+** 
+

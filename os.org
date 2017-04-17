@@ -59,9 +59,44 @@ sudo alternatives --config java
 - Choose prefer java version.
 ** Where is the config file of ssh 
    /etc/ssh/ssh_config
+** What is the role of known_hosts and authorized_keys
+   known_hosts -> when client connect to server, public key of _SERVER_ will be stored at _CLIENT's known_hosts_
+   authorized_keys -> when server accept client's public keys, _SERVER_ will store _CLIENT's public key_ in authorized_keys
 ** How to restart ssh
    #+BEGIN_SRC shell
    service sshd restart
    #+END_SRC
    
+** What is >> and >
+   >>: refers to append the output to end of file
+   >: refers to overwrite the 
+** What is UEFI(Unified Extensible Firmware Interface), EFI(Extensible Firmware Interface), Booloader
+*** 
+    
+** How to mout a usb in terminal
+** How to unmount a usb in terminal
+** How to write a file.iso to a usb 
+   #+BEGIN_SRC bash
+   dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress && sync
+   #+END_SRC
+** How to list all disk 
+   #+BEGIN_SRC bash
+   fdisk -l
+   #+END_SRC
+
+
+** How to list all network interface
+   #+BEGIN_SRC bash
+   ip link
+   #+END_SRC
+
+** How to start/end  up/down a network interface
+   #+BEGIN_SRC bash
+   ip link set interface up/down
+   #+END_SRC
+** How to mount a partition when an OS boot
+   Edit file: /etc/fstab and append 
+   #+BEGIN_SRC text
+   /dev/sdaX /mount_point sdaX_partition_format
+   #+END_SRC
 * KEYSCAN ISSUE gather all public key or not ??????

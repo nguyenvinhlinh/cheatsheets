@@ -2,3 +2,6 @@
    #+BEGIN_SRC shell
    rpm --query --all
    #+END_SRC
+** How to know where package installed? 
+#+BEGIN_SRC shell
+rpm -ql package-name

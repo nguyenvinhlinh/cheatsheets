@@ -1,0 +1,51 @@
+** How to install arch 
+*** Make partition
+**** List disk devices    
+     #+BEGIN_SRC bash
+     fdisk -l
+     #+END_SRC
+**** Make partition
+     #+BEGIN_SRC bash
+     fdisk /dev/sda
+     #+END_SRC
+     It's important to have following partitions
+     1. os partition -> a place to store os, set bootable
+     2. home partition -> a place to store personal information for users  /home/nguyenvinhlinh, /home/admin
+     3. swap partition -> a place to store memory when ram is not enough
+*** Format partition
+    os partition -> mkfs.ext4 /dev/sda1
+    home partition -> mkfs.ext4 /dev/sda3
+    swap partition -> swap
+*** Generate disk device map 
+    #+BEGIN_SRC bash
+    genfstab -U -p /mnt >> /mnt/etc/fstab
+    #+END_SRC
+*** Set timezone
+    #+BEGIN_SRC bash
+    ln -s /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
+    #+END_SRC
+*** Set locale
+    edit /etc/locale.conf
+    #+BEGIN_SRC bash
+    locale-gen
+    #+END_SRC
+*** Set the time for system
+#+BEGIN_SRC bash
+hwclock --systohc --utc
+#+END_SRC
+*** Change password
+#+BEGIN_SRC shell
+passwd
+#+END_SRC
+    
+*** Install booting information
+#+BEGIN_SRC shell
+grub-install --target=i386-pc --recheck /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg 
+#+END_SRC
+*** Reboot and unmout
+#+BEGIN_SRC shell
+umount /mnt/home
+umount /mnt
+reboot
+#+END_SRC

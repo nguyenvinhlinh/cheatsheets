@@ -6,3 +6,8 @@
 #+BEGIN_SRC shell
 rpm -ql package-name
 #+END_SRC
+
+** How to find versions of package?
+   dnf search package_name --showduplicates
+** How to search/install a package from a particular repo
+   dnf repo-packages repo_name search/install package_name

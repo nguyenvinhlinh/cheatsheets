@@ -9,7 +9,11 @@
    #+END_SRC
 ** How to remove docker image
    #+BEGIN_SRC shell
-   docker rmi -f image_name
+   docker rmi image_name
+   #+END_SRC
+** How to remove docker container
+   #+BEGIN_SRC shell
+   docker rm container_name
    #+END_SRC
 ** How to list all container/process of docker 
    #+BEGIN_SRC shell
@@ -18,5 +22,18 @@
    #+END_SRC
 ** How to access to command line env of docker container
    #+BEGIN_SRC shell
-   docker exec -it _image_name_ /bin/bash
+   docker exec -it _container_name_ /bin/bash
    #+END_SRC
+** How to build image faster. 
+   run --rm -it fedora:25 /bin/bash
+   RUN all need command here, to understand workflow
+** How to access to console of running application.
+   docker attach /container_name/
+** How to push image to docker hub
+   #+BEGIN_SRC shell
+   docker login;
+   docker tag fedora-elixir:1.4.0 nguyenvinhlinh/fedora-elixir:1.4.0
+   docker push nguyenvinhlinh/fedora-elixir:1.4.0
+   #+END_SRC
+
+   

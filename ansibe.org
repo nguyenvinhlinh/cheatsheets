@@ -57,3 +57,37 @@ reinvent the wheel, for example installing nodejs, postgres, set role/group on o
    #+BEGIN_SRC shell
    ansible node_name -m ping -u username_on_node (--ask-pass if need)
    #+END_SRC
+** What is the structure of task.yaml
+   #+BEGIN_SRC yaml
+---
+- name: Ping to server
+  become_user: kmt
+  become: yes
+  ping:
+
+   #+END_SRC
+** What is the structure of a playbook
+   #+BEGIN_SRC yaml
+---
+- hosts: localhost
+  remote_user: admin
+
+  vars:
+    - ansible_runner_public_key: "{{lookup('file', '/home/admin/.ssh/id_rsa.pub')}}"
+
+  tasks:
+    - name: made ssh key pair for the machine
+      user:
+        name: admin
+        group: wheel
+        state: present
+        generate_ssh_key: yes
+        createhome: yes
+   #+END_SRC
+** What is the structure of a var file
+   #+BEGIN_SRC yaml
+   ---
+   management_node_public_key_path: /home/vagrant/.ssh/id_rsa.pub
+   gitlab_pubic_key_file_path: /home/vagrant/management_node/config/gitlab_public_key.txt
+   #+END_SRC
+** What is the role of anisble_role's 

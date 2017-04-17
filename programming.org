@@ -1,0 +1,26 @@
+** What is declarative programming 
+   Tell the machine what you would like to happend, and machine 
+   figure it out to do it 
+** What is imperative programming
+   Tell the machine how to do something, as a result what
+   you want to happend
+** What is advantage of declarative to imperative programming 
+   The main advantage of declarative is that the code trunk is much easier to read. However, 
+   the total amount of code trunk can be the same. In deed, the logic/solution  still the same 
+   to solve a problem, Declarative only have developers read code much easier as a result 
+   maintain and extend easily.
+** Lessons learned from 12 factors app
+   - One code base for one app or service (if multiple service). If services use some shared code, make these shared code library
+   - Dependency should always be declared and  isolated from the system environment. 
+   Erlang and Elixir is a library to run app, it's should be isolate and for elixir app, deps must be declared in the mix.exs
+   - separate config file from the code base, group them in the environment (test, prod, stating)
+   - treat database, external service as a resources which mean that at any time, we can swap from this service to another 
+   one with no code changes in code base. A config file play a role here, you change the config file, not the code base.
+   - Build and run stage should be done strictly. There are some language which does not need to compile, it can run directly, 
+   however, in this case source code of current deploy time should be store (snapshot), and next time, when I want to rollback, 
+   I can easily rollback. For elixir, it's a need to use release tool (rollback, zero-downtime migrate).
+   - Separate the application into stateless process. Data which need to be share or store should be at database (a statefull service)
+   - Keep the env of dev, staging, prod closed as much as we can, I can lesser the amount of time to deploy, dev, and config. 
+   - With a bunch of separate processes running, each process should write log. 
+
+

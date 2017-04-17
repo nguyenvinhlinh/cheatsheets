@@ -38,7 +38,7 @@ end
 #+END_SRC
 2. Fetch lib, compile, do digest
 #+BEGIN_SRC shell
-MIX_ENV=prod mix do dept.get, compile
+MIX_ENV=prod mix do deps.get, compile
 MIX_ENV=prod mix phoenix.digest
 #+END_SRC
 3. Generate release

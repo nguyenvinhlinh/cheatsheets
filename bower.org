@@ -1,0 +1,12 @@
+** How to install package any bower
+   #+BEGIN_SRC shell
+   bower install package_name
+   #+END_SRC
+** How to install package for project given the bower.json
+   #+BEGIN_SRC shell
+   bower install
+   #+END_SRC
+** How to install package and save to bower.json
+   #+BEGIN_SRC shell
+   bower install package_name --save
+   #+END_SRC

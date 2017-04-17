@@ -23,3 +23,21 @@ bundle install --binstubs
 ruby=ruby-2.1.10   #ruby_version
 ruby-gemset=vetter #ruby_gemset
 #+END_SRC
+** What is require
+   The require method allows you to load a library and prevents it from being loaded more than once.
+** What is extend 
+   If a _class_ extends a _module_, this class has _new class functions_  given by the _module_
+** What is include
+   If a _class_ include a _module_, this class's instances has _new instance functions_ given by the _module_
+** Comparation between extend and include
+   |--------------------------+------------------------------------------+-----------------------------------------------------|
+   |                          | extend a module                          | include a module                                    |
+   |--------------------------+------------------------------------------+-----------------------------------------------------|
+   | module's class method    | invoke only by: `module.class_method`    | invoke only by: `module.class_method`               |
+   |--------------------------+------------------------------------------+-----------------------------------------------------|
+   | module's instance method | invoke only by: `class.method`           | invoke only by: `class.new.method`                  |
+   |                          | class gains new class method from module | class instance gain new instance method from module |
+   |--------------------------+------------------------------------------+-----------------------------------------------------|
+
+   tweak to remember _include_ -> _instance_ 
+

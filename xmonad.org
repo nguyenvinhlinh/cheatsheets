@@ -1,0 +1,24 @@
+** Default keybinding
+| Command          | Description                                           |
+|------------------+-------------------------------------------------------|
+| mod-shift-return | open a new terminal                                   |
+| mod-space        | change layout mode(wide,tall, fullscreen)             |
+| mod-j            | move window focus up                                  |
+| mod-k            | move window focus down                                |
+| mod-comma        | increase number of window on the master pane          |
+| mod-period       | decrease number of window on the master pane          |
+| mod-h / mod-l    | resizing the ratio between the master pane and others |
+|                  |                                                       |
+| mod-t            | on/off set a floating window                          |
+| mod-button1      | move floating window                                  |
+| mod-button3      | resize floating window                                |
+| mod-button2      | bring to top a floating window                        |
+|                  |                                                       |
+| mod-shift-c      | kill a window                                         |
+| mod-1 9          | Using workspace                                       |
+| mod-p            | open application menu                                 |
+| mod-shift-q      | exit X                                                |
+|------------------+-------------------------------------------------------|
+
+
+** Re-compile xmonad config: xmonad --recompile

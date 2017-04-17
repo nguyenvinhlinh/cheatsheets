@@ -1,0 +1,5 @@
+** What is css combinators
+   1. descendant selector (space)
+   2. child selector (>)
+   3. adjacent sibling selector (+)
+   4. general sibling selector (~)
