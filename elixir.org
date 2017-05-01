@@ -15,8 +15,7 @@ require Integer
 Integer.is_even(1)
 #+END_SRC
 - _Import_: Import function/macro from module to current module. _Importing_ will 
-require a module automatically, as a consequence, you can have run any function if
-prefix with importing MODULE.
+require a module automatically, as a consequence, you can have run any function of imported __MODULE__. 
 
 #+BEGIN_SRC elixir
 import Integer, only: [is_even: 1]

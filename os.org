@@ -84,7 +84,8 @@ sudo alternatives --config java
    fdisk -l
    #+END_SRC
 
-
+** How to add an user to a group
+   usermod -a -G _group_name_ _username_
 ** How to list all network interface
    #+BEGIN_SRC bash
    ip link

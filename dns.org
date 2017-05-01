@@ -1,0 +1,9 @@
+** What is A(Host) 
+   A(Host) is about maps _domain_name_ to _IP_address_ 
+   for example: 
+   hexalink.xyz -> 106.98.55.62
+** What is CNAME
+   CNAME is canonical name which maps _domain_name_ to _domain_name_ 
+   for example:
+   image.hexalink.xyz -> hexalink.xyz
+   blog.hexalink.xyz -> hexalink.xyz
