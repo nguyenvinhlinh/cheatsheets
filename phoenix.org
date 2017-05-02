@@ -82,3 +82,42 @@ mix gettext.merge priv/gettext
    query3 = from p in query2, where: ilike(p.name, "%a%")
    Repo.all(query3)
    #+END_SRC
+** How do phoenix render layout and template
+   souce: https://github.com/phoenixframework/phoenix/blob/v1.2.3/lib/phoenix/view.ex#L170
+   Controller trigger _render_ function (Controller.render), passes (conn, ViewModule, ViewTemplate, assigns).
+   -> Find a view, then trigger _render_ function of view(View.render) (exist params: ViewModule, ViewTemplate, assigns)
+   -> Detach :layout from _assigns_, got: LayoutViewModule, LayoutTempalte, ViewModule, ViewTemplate, assigns
+   -> Render LayoutModule, LayoutTemplate with assigns of InnerViewModule, InnerViewTemplate, and assigns, fn look alike: (LayoutModule.render(LayoutTemplate, assigns))
+   -> LayoutModule.render/2 is imported via _use_ from the Phoenix.Template.
+** What is the usecase of setting _namespace_ or _path_  in the phoenix view
+   The main purpose of setting _namespace_ and _path_ is to correct the template path where Templating Engine can find template files.
+   While import phoenix view, the default _root_ is /web/templates/'. Beside that, there are available options such as: _path_ and _namespace_.
+   _path_: refers to a directory group name which store templates for example: 'user', 'admin/teacher'
+   _namespace_: refer to base module name, For example: 'MyApp.Admin.User', namespace can be 'MyApp' or 'MyApp.Admin'.
+   The consequence of setting namespace to 'MyApp' is the path suppose to be '/root/admin/user/'
+   The consequence of setting namespace to 'MyApp.Admin' is the path suppose to be '/root/user/'
+   The main use case to set _namespace_ instead of _path_ is set the file path automatically based on module names, and advoid writing this
+   kind of code trunk repeatedly.
+   #+BEGIN_SRC elixir
+   defmodule MyApp.Admin.UserView do
+     use Phoenix.Template, root: "/web/template", path: "admin/user"  -> duplicated `path` indicator
+   end
+
+   defmodule MyApp.Admin.TeacherView do
+     use Phoenix.Template, root: "/web/template", path: "admin/teacher"
+   end
+   #+END_SRC
+   A better practice is to separate the code trunk
+   #+BEGIN_SRC language
+   defmodule MyApp.Admin.View do
+     use Phoenix.View, root: "web/templates"   --> Note that by default, the namespace set to be the first module of MyApp.Admin.View which is MyApp
+   end
+
+   defmodule MyApp.Admin.UserView do
+     use MyApp.Admin.View
+   end
+
+   defmodule MyApp.Admin.TeacherView do
+    use MyApp.Admin.View
+   end
+   #+END_SRC
