@@ -15,7 +15,7 @@
    #+BEGIN_SRC shell
    docker rm container_name
    #+END_SRC
-** How to list all container/process of docker 
+** How to list all container/process of docker
    #+BEGIN_SRC shell
    docker ps;  -> List running process
    docker ps -a -> List all process
@@ -24,7 +24,7 @@
    #+BEGIN_SRC shell
    docker exec -it _container_name_ /bin/bash
    #+END_SRC
-** How to build image faster. 
+** How to build image faster.
    run --rm -it fedora:25 /bin/bash
    RUN all need command here, to understand workflow
 ** How to access to console of running application.
@@ -36,4 +36,13 @@
    docker push nguyenvinhlinh/fedora-elixir:1.4.0
    #+END_SRC
 
-   
+
+** What is the advantages and disadvantages of making base image (Dockerfile-base) along with Dockerfile for applications
+*** Advantages
+1. To avoid a case that the library change/remove/modify its source code but keep the same version. If that happend,
+there's always a snapshoot of built dependencies which are good and ready to deploy.
+2. If develop application within docker environment, developers dont have to do set up developing environment (the environment/app dependencies has been built from base image). Remember that, the base image gonna used in prod and env. Via sharing volumes, developers can developer application well
+*** Disadvantages
+1. When code changes, there might need to run two build process consequently, One to build the base image(dependencies), 
+Two to build the main image. If the dependencies requirement changes, but deployers forget to upgrade base image, Of
+ course, they cannot deploy and run application successfully.
