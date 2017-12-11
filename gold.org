@@ -1,10 +1,11 @@
 ** Unit in grams
    |-----------------+-----------------|
+   | 1 chi           | 3.75 gram       |
    | 1 luong         | 37.5 gram       |
    | 1 cay = 1 luong | 37.5 gram       |
-   | 1 chi           | 3.75 gram       |
    | 1 ounce         | 31.1034768 gram |
    |-----------------+-----------------|
+
 ** What is karat
    A karat, when used with gold, is a unit of purity-- 24-karat gold is pure gold, 
    but usually you mix gold with a metal like copper or silver to make jewelry

@@ -6,5 +6,5 @@
    In the big web app, there might be disorganized css, not naming carefuly.
    As a consequence, a style of this tag (ex. p) declared in section A which
    then can affect appearance of the same tag name at section B on web page.
-** 
+** What is the different between section and div
 

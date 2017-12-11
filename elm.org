@@ -1,0 +1,48 @@
+** What can ELM do ?
+- Instead of writing an application with html, js, css code, ELM replace html, js with its syntax. 
+After all finished compiling, the output is javascript. When load this javascript file, it's including 
+html and javascript only. The css does not process by the ELM compiler.
+** What is elm-make?
+Compile the elm file to javascript/html file 
+#+BEGIN_SRC shell
+elm-make input.elm --output output.html
+elm-make input.elm --output output.js
+elm-make input.elm --output output.js --warn  --> to show warnings
+#+END_SRC
+** What is elm-package ?
+It's a package/library manager for ELM. In addition to this command line, there is a file named 
+*elm-package.json* which include all library needed. Downloaded library will be located at *./elm-stuff/packages/*
+#+BEGIN_SRC shell
+elm-package install elm-lang/http
+#+END_SRC
+** What is elm-reactor ?
+It's a program which compile *elm file* to *html file* then servers on a web browser. It does not support external css.
+** What is elm-repl ?
+It a program provide an interactive environment REPL. Provide input, Get result, Be in a loop. It's useful to test 
+and practive the syntax of ELM.
+
+
+
+
+
+** What is exposing in export, `import Html exposing (..)`
+** What is type
+** What is alias 
+** What is _type alias_  ?
+   Allow to create complex model
+
+** Why do we need `Generator Int` here https://github.com/elm-lang/core/blob/master/src/Random.elm#L89
+   If a return of (Random.int 1 6) is an integer, why should we not write the anotation such as:
+   #+BEGIN_SRC elm
+   int : Int -> Int -> Generator Int    -- original source code
+   int : Int -> Int -> Int              -- test source code
+   #+END_SRC
+** Cheatsheet
+*** Comments
+**** Single line: -- comment
+**** Multiple lines: {- comment - }
+*** Pattern matching
+*** Call function (like lisp)
+    #+BEGIN_SRC elm
+    (function_name arg1 arg2) 
+    #+END_SRC

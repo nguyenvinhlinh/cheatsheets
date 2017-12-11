@@ -20,19 +20,6 @@
     #+BEGIN_SRC bash
     genfstab -U -p /mnt >> /mnt/etc/fstab
     #+END_SRC
-*** Set timezone
-    #+BEGIN_SRC bash
-    ln -s /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
-    #+END_SRC
-*** Set locale
-    edit /etc/locale.conf
-    #+BEGIN_SRC bash
-    locale-gen
-    #+END_SRC
-*** Set the time for system
-#+BEGIN_SRC bash
-hwclock --systohc --utc
-#+END_SRC
 *** Change password
 #+BEGIN_SRC shell
 passwd

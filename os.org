@@ -70,13 +70,12 @@ sudo alternatives --config java
 ** What is >> and >
    >>: refers to append the output to end of file
    >: refers to overwrite the 
-** What is UEFI(Unified Extensible Firmware Interface), EFI(Extensible Firmware Interface), Booloader
-*** 
-    
+** What is UEFI(Unified Extensible Firmware Interface), EFI(Extensible Firmware Interface), Booloader    
+
 ** How to mout a usb in terminal
 ** How to unmount a usb in terminal
 ** How to write a file.iso to a usb 
-   #+BEGIN_SRC bash
+    #+BEGIN_SRC bash
    dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress && sync
    #+END_SRC
 ** How to list all disk 

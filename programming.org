@@ -24,3 +24,7 @@
    - With a bunch of separate processes running, each process should write log. 
 
 
+** What is Deterministic in term of function and machine? 
+   Deterministic refers to the correctness of function. Given function f(x) and fixed x value, 
+   f(x) always return the same value at any point of time. 
+

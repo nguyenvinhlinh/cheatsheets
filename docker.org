@@ -36,7 +36,6 @@
    docker push nguyenvinhlinh/fedora-elixir:1.4.0
    #+END_SRC
 
-
 ** What is the advantages and disadvantages of making base image (Dockerfile-base) along with Dockerfile for applications
 *** Advantages
 1. To avoid a case that the library change/remove/modify its source code but keep the same version. If that happend,
@@ -46,3 +45,7 @@ there's always a snapshoot of built dependencies which are good and ready to dep
 1. When code changes, there might need to run two build process consequently, One to build the base image(dependencies), 
 Two to build the main image. If the dependencies requirement changes, but deployers forget to upgrade base image, Of
  course, they cannot deploy and run application successfully.
+** How to start docker daemon on centos
+   #+BEGIN_SRC shell
+   sudo systemctl start docker
+   #+END_SRC

@@ -55,3 +55,9 @@ su postgres
 psql < dumpsql.sql
 #+END_SRC
    
+** Different between _varchar_ and _char_ data type
+   The output of data when fetching is different.
+   - varchar(5): it uses 5 slot to store character. if value's length is 2 for example: "Hi",
+     it will return "Hi"
+   - char(5): it uses 5 slot to store character. if value's length is 2 for example: "Hi",
+     it will return "Hi   ". Note that those 3 space characters after "i" letter.

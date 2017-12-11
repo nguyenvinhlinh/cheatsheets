@@ -1,0 +1,24 @@
+** What is overlay network?
+   Overlay network refers to a network built on-top of a network.
+** What is relay network?
+   Relay netwok refers to a network which transfer information from source to destination via nodes(relay machines). Relay trong  tiếng  việt có nghĩa là chuyển tiếp.
+** What is P2P network?
+   P2P network refers to peer to peer network, which mean that all node are similar. There are no serveres , no clients.
+** What is I2P , Invisible Internet Project?
+   I2P refers to a project which help people connect to the internet and gain information anonymously. 
+** How does I2P work?
+   I2P create a overlay network, on the network, user access information via many relay machines. In
+   addition, user computer can also play as a relay machine too. As a consequence, it causes difficulty 
+   tracker or tracers. A computer not only query data for its user, It also can transfer data for others.
+   A short data workflow can be found here: https://geti2p.net/en/docs/how/intro
+** What is garlic?
+
+TOread   
+https://www.youtube.com/user/i2ptutorials
+https://rebuildingalexandria.wordpress.com/2012/02/21/secure-and-anonymous-file-sharing-using-torrents-on-the-i2p-network-library-nu-exiles-take-a-look/
+https://geti2p.net/en/docs/how/network-database
+
+
+
+
+f7b26d4c554b491569f17e7f99b44e67

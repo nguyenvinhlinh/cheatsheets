@@ -46,7 +46,7 @@ end
 
 
 
-** DRAFT
 ** What is agent ?
 First of all, Agent is a name of module. By using Agent, you can make a 
 separated process which store state. The state can be share among another process. 
+
