@@ -9,12 +9,12 @@
 ** Change password of user
 #+BEGIN_SRC sql
 alter user ABC encrypted password 'ABC_password'
-#+END_SRC
+#+END_SRC*
 ** Alter the role of user;
   #+BEGIN_SRC sql
   ALTER USER username createdb;
   #+END_SRC
-** How to make new database 
+** How to make new database
    #+BEGIN_SRC sql
    create database database_name with owner = owner_name;
    #+END_SRC
@@ -22,7 +22,7 @@ alter user ABC encrypted password 'ABC_password'
    #+BEGIN_SRC sql
    drop database database_name
    #+END_SRC
-** Export the data from the database 
+** Export the data from the database
   #+BEGIN_SRC shell
   pg_dump -O -x db_name > output.sql
   pg_dump -h 127.0.0.1 -p 15432 -d iea_dev -x db_name > file_export.sql
@@ -35,7 +35,7 @@ alter user ABC encrypted password 'ABC_password'
   #+BEGIN_SRC sql
   select * from current_database();
   #+END_SRC
-** View a list of database 
+** View a list of database
   #+BEGIN_SRC sql
   \l
   #+END_SRC
@@ -43,8 +43,8 @@ alter user ABC encrypted password 'ABC_password'
   #+BEGIN_SRC sql
   \c database_name
   #+END_SRC
-   
-** How to dump all data of postgres 
+
+** How to dump all data of postgres
    #+BEGIN_SRC shell
    su postgres
    pg_dumpall -f dump.sql
@@ -54,10 +54,19 @@ alter user ABC encrypted password 'ABC_password'
 su postgres
 psql < dumpsql.sql
 #+END_SRC
-   
+
 ** Different between _varchar_ and _char_ data type
    The output of data when fetching is different.
    - varchar(5): it uses 5 slot to store character. if value's length is 2 for example: "Hi",
      it will return "Hi"
    - char(5): it uses 5 slot to store character. if value's length is 2 for example: "Hi",
      it will return "Hi   ". Note that those 3 space characters after "i" letter.
+
+** Where is the default installation of postgres?
+   /usr/pgsql-X -> X is the major verion
+** Where is the default data directory?
+   /var/lib/pgsql
+** How to find records when `where` working with array-type column
+   #+BEGIN_SRC sql
+   select * from temp.table_name where array_type_column_name @> '{term}';
+   #+END_SRC

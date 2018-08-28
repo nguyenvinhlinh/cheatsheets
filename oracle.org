@@ -1,0 +1,56 @@
+** How to allow server output?
+   #+BEGIN_SRC sql
+   set serveroutput on size unlimited;
+   #+END_SRC
+** Assign variables in PL/SQL (Procedure Language)
+   #+BEGIN_SRC pl/sql
+   DECLARE
+     part_no    NUMBER(6);
+     part_name  VARCHAR2(20) := 'abc';
+   Begin
+     part_no = 12;
+     dbms_output.put_line(part_no);
+   End;
+   #+END_SRC
+** Collection and record in PL/SQL
+** IO in the PL/SQL
+   #+BEGIN_SRC pl/sql
+   dbms_output.put_line('Hello world');
+   dbms_output.put_line('Hello ' || name);
+   #+END_SRC
+** Function
+** Procedure
+** Condition
+** Loop
+** Processing Queries with PL/SQL
+Processing a SQL query with PL/SQL is like processing files with other languages
+#+BEGIN_SRC pl/sql
+BEGIN
+  FOR someone IN (SELECT * FROM employees WHERE employee_id < 120 )
+  LOOP
+    DBMS_OUTPUT.PUT_LINE('First name = ' || someone.first_name ||
+                         ', Last name = ' || someone.last_name);
+  END LOOP;
+END;
+#+END_SRC
+** Calling a Standalone Procedure From SQL*Plus
+#+BEGIN_SRC pl/sql
+CALL award_bonus(179, 1000);
+
+BEGIN
+  award_bonus(179, 10000);
+END;
+/
+-- using named notation
+BEGIN award_bonus(emp_id=>179, bonus=>10000); END;
+/
+#+END_SRC
+** How to list all procedures
+#+BEGIN_SRC sql
+SELECT OWNER, OBJECT_NAME FROM ALL_OBJECTS WHERE OBJECT_TYPE = 'PROCEDURE';
+#+END_SRC
+** How to view error message after compiling
+#+BEGIN_SRC sql
+select * from SYS.USER_ERRORS where type = 'PROCEDURE';
+#+END_SRC
+

@@ -23,7 +23,7 @@
 *** Digest asset file: `mix phoenix.digest`
 *** Run the server `MIX_ENV=prod PORT=4000 mix phoenix.server` (1)
 *** Run the server (console)  `MIX_ENV=prod PORT=4000 iex -S mix phoenix.server` (2)
-*** Run the server (detached)  `MIX_ENV=prod PORT=4000 elixir --detached  -S mix do compile, phoenix.server` (3)
+*** Run the server (detached) `MIX_ENV=prod PORT=4000 elixir --detached  -S mix do compile, phoenix.server` (3)
 ** How to deploy phoenix app the hard way
 *** NOTES
 - For _ANY_ commands, It's need to have  /MIX_ENV=prod/
@@ -121,3 +121,12 @@ mix gettext.merge priv/gettext
     use MyApp.Admin.View
    end
    #+END_SRC
+** How to run phoenix with port 80 (any port under 2000)
+*** run with mix phoenix.server
+#+BEGIN_SRC sh
+sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/lib/erlang/erts-8.1/bin/beam.smp
+#+END_SRC
+*** run with elixir release
+#+BEGIN_SRC sh
+sudo setcap CAP_NET_BIND_SERVICE=+eip /home/ubuntu/myapp/_build/prod/rel/myapp/erts-8.1/bin/run_erl
+#+END_SRC

@@ -9,7 +9,7 @@ passwd kmt
 #+END_SRC
 ** How to extract tar.gz
 #+BEGIN_SRC shell
-tar -xf abc.tar.gz
+tar -vxzf abc.tar.gz
 #+END_SRC
 ** How to reload the bashrc, zshrc file
 #+BEGIN_SRC shell
@@ -99,4 +99,29 @@ sudo alternatives --config java
    #+BEGIN_SRC text
    /dev/sdaX /mount_point sdaX_partition_format
    #+END_SRC
+** How to setup host so that allow clients accessing via ssh connection.
+*** Create the RSA Key Pair on client machine
+#+BEGIN_SRC shell
+ssh-keygen -t rsa
+#+END_SRC
+*** Add public key to the .ssh/authorized_keys on the host
+
+** How to open a port for service at any port professionally 
+*** Create firewall service configuration: my-service.xml in /etc/firewalld/services/
+#+BEGIN_SRC xml
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>My Service</short>
+  <description>This option allows My service to use tcp port 80</description>
+  <port protocol="tcp" port="80"/>
+</service>
+#+END_SRC
+*** Add a new service to firewall-cmd: firewall-cmd --permanent --add-service=my-service
+*** Reload firewall-cmd: firewall-cmd --reload
+*** Check firewall service list: firewall-cmd --list-services
+
+** How to run application with port 80 (any port under 2000)
+#+BEGIN_SRC sh
+sudo setcap CAP_NET_BIND_SERVICE=+eip path_to_binary_file
+#+END_SRC
 * KEYSCAN ISSUE gather all public key or not ??????

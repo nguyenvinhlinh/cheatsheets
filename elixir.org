@@ -38,8 +38,10 @@ end
    #+BEGIN_SRC elixir
    plug :check_product_owner when action in [:create, :delete]
    #+END_SRC
-** How to make a simple macro 
 
+
+   
+   
 ** TODO
 - research on process, note them all down 
 - research on How elixir save STATE 
@@ -50,3 +52,5 @@ end
 First of all, Agent is a name of module. By using Agent, you can make a 
 separated process which store state. The state can be share among another process. 
 
+** What is the order of start_link and init in GenServer.
+   start_link/3 comes first then init/1. The second argument of start_link/3 will be then passed to init/1.

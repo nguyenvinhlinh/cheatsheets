@@ -6,4 +6,6 @@
    To `undo` a thing there is _M-x undo_
    To `redo` a thing there is _C-g M-x undo_
 
-
+   
+** How to edit file with sudo:
+   C-x C-f /sudo::/path_to_the_file

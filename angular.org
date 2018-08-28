@@ -1,13 +1,14 @@
+
 ** What is  /providers/ definition?
    It's a property of AppModule or AppComponent and it's used for creating /dependencies/.
    Those /dependencies/ then will be injected and used in classes without creating a new instance.
 ** What is /dependency/ ?
-   /Dependency/ is an instance of class, this instance then will be injected into classes, and 
+   /Dependency/ is an instance of class, this instance then will be injected into classes, and
    be used there.
 ** What is /declare/, /export/, /import/, /provide/ and /boostrap/ in ngModule?
 *** _Declare_ : list component, directive and pipi belong to ngModule
 *** _Export_: list classes which will be used in template
-*** _Import_: to import an ngModule, then used its component, directive, pipe 
+*** _Import_: to import an ngModule, then used its component, directive, pipe
 *** _Provide_: List services that component can used instead of creating a new instance
 *** _Boostrap_: List the root app module to start up
 ** Angular does not do live reloading ?
@@ -17,15 +18,15 @@
 ** How to an event in child component can affect parent component ?
    - The child component has an event emiter instance
    - The parent component has an even handler function
-   
-   for example: 
+
+   for example:
    #+BEGIN_SRC typescript
    <child-component (createItemEmitter)='handleCreateItem($event)'> </child-component>
    #+END_SRC
-   the parent component has a function name handleCreateItem($event). The child component has a createItemEmitter, 
-   when user click a button in the child component. It emits an events. On the parent component, there is an event 
+   the parent component has a function name handleCreateItem($event). The child component has a createItemEmitter,
+   when user click a button in the child component. It emits an events. On the parent component, there is an event
    handler that has been match to handle it.
-   
+
    it's required to output event emitter in the child component.
    #+BEGIN_SRC language
    @Output() createItemEmitter = new EventEmitter<any>();
@@ -34,7 +35,7 @@
    #+BEGIN_SRC typescript
    createItemHandler(any): void { // create a new item and push to an array maybe.}
    #+END_SRC
-   EventEmitter is generic type class, which mean that I can decide how emit data structure could be, the data structure 
+   EventEmitter is generic type class, which mean that I can decide how emit data structure could be, the data structure
    that passs into event handler must has the same data structure as event emitter.For example:
    #+BEGIN_SRC language
    @Output() createItemEmitter = new EventEmitter<{name: string}>(); // child component
@@ -46,10 +47,10 @@
    <input #nameInput> </input>
    <button (click)='onClick(nameInput)'> </button>
    #+END_SRC
-   By this way, a dom has been tagged and pass into another dom's function to process. 
+   By this way, a dom has been tagged and pass into another dom's function to process.
    It happens on the template only so, it's called local reference
 ** How to get access to template & Document Object Model ?
-   Beside local reference, that give access only on template. It's another way to 
+   Beside local reference, that give access only on template. It's another way to
    access _data object model_ from component class is using decorator @ViewChild.
    #+BEGIN_SRC html
    <input #nameInput> </input>
@@ -66,5 +67,43 @@
    - ngAfterViewInit
    - ngAfterViewChecked
    - ngOnDestroy
+** Add event handler for a click?
+   Remember to add a () around click attribute. 
+   #+BEGIN_SRC html
+   <button (click)="handleButtonClick($event)">Display even only</button>
+   #+END_SRC
 
-       
+** How to make routes?
+1. make routes 
+   import { RouterModule } from '@angular/router';
+   import { Routes } from '@angular/router';
+   make routes variable: https://angular.io/api/router/Routes
+2. register routes to the application
+   in the import of module, add RouteModule.forRoot(routes)
+3. use router-outlet
+   <router-outlet></router-outlet>
+4. in the <a routerLink="/path"> --> property binding
+** Binding in the angular
+   1. property binding <[property name]=  >
+
+   2. 
+** style the active link
+   routerLinkActive="active"
+   [routerLinkActiveOptions]="{exact: true}">
+** An example of Observable and Observer?
+
+
+** What is Subject (Rxjs)?
+   Subject instance plays as an Observer and Observable at the same time.
+** What is EventEmitter?
+   EventEmitter extends the Subject, therefore it plays as Observer and Observable
+** How many type of binding?, What are they?
+- property binding: [property_name]="value"  --> the value here in the type of object.
+- attribute binding: attribute_name="value"
+** How many way to render a form?
+*** Template driven
+    
+*** Programmatic form
+    - create a form group in component
+    - bind FormGroup instance to form tag [formGroup] properties binding
+    - for the input tag, bind attribute formControlName with controller name in the form group

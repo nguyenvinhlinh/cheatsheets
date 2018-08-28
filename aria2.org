@@ -1,0 +1,20 @@
+** How to install aria2 from source code
+*** Install dependency:
+#+BEGIN_SRC shell
+sudo dnf install gcc gcc-c++ kernel-devel libgcrypt-devel libxml2-devel openssl-devel gettext-devel cppunit
+sudo dnf install libxml2-devel cppunit-devel autoconf automake libtool 
+#+END_SRC
+*** Generate configration file:
+#+BEGIN_SRC shell
+autoreconf -i
+#+END_SRC
+*** Compile and install
+#+BEGIN_SRC shell
+./configure --prefix='home/nguyenvinhlinh/Software/aria2';
+make;
+make install;
+#+END_SRC
+** How to start server rpc
+#+BEGIN_SRC shell
+aria2c --enable-rpc --rpc-listen-all
+#+END_SRC

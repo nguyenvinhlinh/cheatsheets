@@ -1,0 +1,48 @@
+** How to install ODB for develop environment 
+*** Install the IBM Liberty 
+*** Install the IBM Installation Manager
+*** Import repository of Decision Server Rules and Decision Center
+*** Install Decision Server Rules and Decision Center via IBM Installation Manager
+    
+
+** What is Decision Server?
+It provides following functionality:
+- Rule design tool (eclipse based)
+- Rule execution server which provides a runtime environment
+** What is Decision Center?
+It provides a server for _business people_, they can manage
+ decision with limited dependence on IT guys.
+** What is Rule Execution Server?
+It's an entry point that execute input data with provied rules.
+
+** Install IBM Installation Manager
+** XOM: Executable Object Model
+** BOM: Business Object Model
+** BAL: Business Action Language
+** IRL: ILOG Rule Language
+
+** How to run sample server /home/nguyenvinhlinh/Software/IBM/ODM891/shared/bin/startserver.sh
+** Decision Center
+http://localhost:9090/decisioncenter
+rtsAdmin/rtsAdmin
+** Rule Exe Serverh
+http://localhost:9090/res/login.jsf
+resAdmin/resAdmin
+
+
+1 Dec. center
+2. Dec Server Rules
+3. Business Console show what happen on Dec. Server 
+https://developer.ibm.com/odm/products/getstarted-standard/
+https://developer.ibm.com/answers/questions/436611/odm-how-to-make-decision-table-with-a-list-of-
+
+
+** How to start server with WebSphere Liberty.
+Go to webs
+#+BEGIN_SRC sh
+$ ./server start server_name 
+#+END_SRC
+** Server index
+*** http://localhost:9090/res/ ---> Rule Execution Server console
+*** http://localhost:9090/teamserver/ ---> ODM Enterprise Console (Teamserver)
+*** http://localhost:9090/decisioncenter/ ---> Decision Center 

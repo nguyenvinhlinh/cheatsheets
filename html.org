@@ -7,4 +7,19 @@
    As a consequence, a style of this tag (ex. p) declared in section A which
    then can affect appearance of the same tag name at section B on web page.
 ** What is the different between section and div
-
+** Basic rule to make beautiful website
+*** Typography
+**** Use the font-size between 15 and 25px for paragraph
+**** Use line space between 120 and 150%
+**** The number of characters per line between 45 and 90
+*** Colors
+**** Use only one base color, from that color create multiple colors which ligher or darker than the base color.
+*** Working with images
+**** Using text above image. The image should be dark and the text aboved should be white.
+In case the image is bright, put an overlay color on top of the image, such as black.
+**** Put text in a box
+**** Blur the image
+**** The floor fade
+*** Working with icons
+*** Spacing and layout
+** 7 step to create killer website   
