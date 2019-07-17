@@ -1,0 +1,10 @@
+** Java executable programs
+|--------+----------------------------------------------------------------------------|
+| Name   | Description                                                                |
+|--------+----------------------------------------------------------------------------|
+| java   |                                                                            |
+| javac  |                                                                            |
+| javaws | java web start                                                             |
+| jar    | jar creates an archive for classes and resources, and                      |
+|        | can manipulate or restore individual classes or resources from an archive. |
+|--------+----------------------------------------------------------------------------|

@@ -1,0 +1,9 @@
+** Set path to the music directory
+#+BEGIN_SRC sh
+xdg-user-dirs-update --set MUSIC /home/nguyenvinhlinh/Dropbox/Music
+#+END_SRC
+
+** Index the music directory
+#+BEGIN_SRC sh
+tracker index -f /home/nguyenvinhlinh/Dropbox/Music
+#+END_SRC

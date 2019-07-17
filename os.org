@@ -35,7 +35,7 @@ apt-cache policy elixir
 ** How to change password
 *** Current user `passwd`
 *** Another user `passwd user_name`
-   
+
 ** How to list all version of package (yum)
 #+BEGIN_SRC shell
 yum --showduplicates list httpd
@@ -49,15 +49,15 @@ yum whatprovides autoconf automake xxxx
 ** How to ignore kernel when do upgrade system with dnf (dnf upgrade)
    Edit file /etc/dnf/dnf.conf
    #+BEGIN_SRC conf
-   exclude=kernel* 
+   exclude=kernel*
    #+END_SRC
-** How to swap version of java 
+** How to swap version of java
 - Download favor java from Oracle website
 #+BEGIN_SRC shell
 sudo alternatives --config java
 #+END_SRC
 - Choose prefer java version.
-** Where is the config file of ssh 
+** Where is the config file of ssh
    /etc/ssh/ssh_config
 ** What is the role of known_hosts and authorized_keys
    known_hosts -> when client connect to server, public key of _SERVER_ will be stored at _CLIENT's known_hosts_
@@ -66,19 +66,19 @@ sudo alternatives --config java
    #+BEGIN_SRC shell
    service sshd restart
    #+END_SRC
-   
+
 ** What is >> and >
    >>: refers to append the output to end of file
-   >: refers to overwrite the 
-** What is UEFI(Unified Extensible Firmware Interface), EFI(Extensible Firmware Interface), Booloader    
+   >: refers to overwrite the
+** What is UEFI(Unified Extensible Firmware Interface), EFI(Extensible Firmware Interface), Booloader
 
 ** How to mout a usb in terminal
 ** How to unmount a usb in terminal
-** How to write a file.iso to a usb 
+** How to write a file.iso to a usb
     #+BEGIN_SRC bash
    dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress && sync
    #+END_SRC
-** How to list all disk 
+** How to list all disk
    #+BEGIN_SRC bash
    fdisk -l
    #+END_SRC
@@ -95,7 +95,7 @@ sudo alternatives --config java
    ip link set interface up/down
    #+END_SRC
 ** How to mount a partition when an OS boot
-   Edit file: /etc/fstab and append 
+   Edit file: /etc/fstab and append
    #+BEGIN_SRC text
    /dev/sdaX /mount_point sdaX_partition_format
    #+END_SRC
@@ -106,7 +106,7 @@ ssh-keygen -t rsa
 #+END_SRC
 *** Add public key to the .ssh/authorized_keys on the host
 
-** How to open a port for service at any port professionally 
+** How to open a port for service at any port professionally
 *** Create firewall service configuration: my-service.xml in /etc/firewalld/services/
 #+BEGIN_SRC xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -123,5 +123,21 @@ ssh-keygen -t rsa
 ** How to run application with port 80 (any port under 2000)
 #+BEGIN_SRC sh
 sudo setcap CAP_NET_BIND_SERVICE=+eip path_to_binary_file
+#+END_SRC
+** How to set chmod for ssh keys
+|-----------------+-------+-------+-------+-------|
+| file name       | chmod | user  | group | other |
+|-----------------+-------+-------+-------+-------|
+| ~/.ssh          |   700 | u+wrx |       |       |
+| id_rsa          |   600 | u+wr  |       |       |
+| id_rsa.pub      |   644 | u+wr  | g+r   | g+r   |
+| authorized_keys |   644 | u+wr  | g+r   | g+r   |
+| known_hosts     |   644 | u+wr  | g+r   | g+r   |
+|-----------------+-------+-------+-------+-------|
+** How to subscribe RHEL system?
+#+BEGIN_SRC sh
+subscription-manager register;
+subscription-manager refresh;
+subscription-manager attach;
 #+END_SRC
 * KEYSCAN ISSUE gather all public key or not ??????
