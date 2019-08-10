@@ -24,6 +24,15 @@
 *** Run the server `MIX_ENV=prod PORT=4000 mix phoenix.server` (1)
 *** Run the server (console)  `MIX_ENV=prod PORT=4000 iex -S mix phoenix.server` (2)
 *** Run the server (detached) `MIX_ENV=prod PORT=4000 elixir --detached  -S mix do compile, phoenix.server` (3)
+*** [Special] Stop old instance, update source code, start new server.
+#+BEGIN_SRC sh
+cd $HOME/phoenix-source-code;
+kill $(cat pid);
+git reset --hard HEAD;
+git pull origin master;
+mix deps.get;
+MIX_ENV=prod PORT=2002 elixir --detached -e "File.write! 'pid', :os.getpid" -S mix phx.server;
+#+END_SRC
 ** How to deploy phoenix app the hard way
 *** NOTES
 - For _ANY_ commands, It's need to have  /MIX_ENV=prod/
