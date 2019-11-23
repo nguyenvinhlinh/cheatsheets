@@ -1,0 +1,15 @@
+** How to add caption to image
+Create a file name "image.html" under "_includes" directory with following content.
+#+BEGIN_SRC html
+<figure class="image">
+  <img src="{{ include.url }}" alt="{{ include.description }}">
+  <figcaption>{{ include.description }}</figcaption>
+</figure>
+#+END_SRC
+
+In posts, display image with:
+#+BEGIN_SRC text
+{% include image.html url="http://abc.com/image.png" description="Description here" %}
+#+END_SRC
+
+credit to: https://stackoverflow.com/a/19360305
