@@ -1,0 +1,20 @@
+* How to use quid to block website
+- Go to /etc/squid/
+- Create a txt file name `badsites.txt` with following content.
+#+BEGIN_SRC txt
+danlambaovn.blogspot.com
+.menam.xyz
+#+END_SRC
+- Edit /etc/squid/squid.conf
+#+BEGIN_SRC conf
+#
+# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
+#
+acl badsites dstdomain "/etc/squid/badsites.txt"
+http_reply_access deny badsites
+http_access deny badsites
+#+END_SRC
+- Reload squid configuration
+#+BEGIN_SRC sh
+squid -k reconfigure
+#+END_SRC
