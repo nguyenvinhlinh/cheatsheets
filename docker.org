@@ -42,10 +42,15 @@
 there's always a snapshoot of built dependencies which are good and ready to deploy.
 2. If develop application within docker environment, developers dont have to do set up developing environment (the environment/app dependencies has been built from base image). Remember that, the base image gonna used in prod and env. Via sharing volumes, developers can developer application well
 *** Disadvantages
-1. When code changes, there might need to run two build process consequently, One to build the base image(dependencies), 
+1. When code changes, there might need to run two build process consequently, One to build the base image(dependencies),
 Two to build the main image. If the dependencies requirement changes, but deployers forget to upgrade base image, Of
  course, they cannot deploy and run application successfully.
 ** How to start docker daemon on centos
    #+BEGIN_SRC shell
    sudo systemctl start docker
+   #+END_SRC
+** How to keep docker image running in docker-compose for debug?
+   In the entry section, change `command` or `entry` to:
+   #+BEGIN_SRC text
+   tail -f /dev/null
    #+END_SRC

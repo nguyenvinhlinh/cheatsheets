@@ -125,15 +125,15 @@ ssh-keygen -t rsa
 sudo setcap CAP_NET_BIND_SERVICE=+eip path_to_binary_file
 #+END_SRC
 ** How to set chmod for ssh keys
-|-----------------+-------+-------+-------+-------|
-| file name       | chmod | user  | group | other |
-|-----------------+-------+-------+-------+-------|
-| ~/.ssh          |   700 | u+wrx |       |       |
-| id_rsa          |   600 | u+wr  |       |       |
-| id_rsa.pub      |   644 | u+wr  | g+r   | g+r   |
-| authorized_keys |   644 | u+wr  | g+r   | g+r   |
-| known_hosts     |   644 | u+wr  | g+r   | g+r   |
-|-----------------+-------+-------+-------+-------|
+|-----------------+-------+-------+-------+-------+--------+--------|
+| file name       | chmod | user  | group | other | server | client |
+|-----------------+-------+-------+-------+-------+--------+--------|
+| ~/.ssh          |   700 | u+wrx |       |       | x      | x      |
+| id_rsa          |   600 | u+wr  |       |       |        | x      |
+| id_rsa.pub      |   644 | u+wr  | g+r   | o+r   |        | x      |
+| authorized_keys |   644 | u+wr  | g+r   | o+r   | x      |        |
+| known_hosts     |   644 | u+wr  | g+r   | g+r   |        | x      |
+|-----------------+-------+-------+-------+-------+--------+--------|
 ** How to subscribe RHEL system?
 #+BEGIN_SRC sh
 subscription-manager register;
