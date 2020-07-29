@@ -140,4 +140,5 @@ subscription-manager register;
 subscription-manager refresh;
 subscription-manager attach;
 #+END_SRC
+** How to get current zone with firewall-cmd?
 * KEYSCAN ISSUE gather all public key or not ??????
