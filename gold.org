@@ -7,8 +7,8 @@
    |-----------------+-----------------|
 
 ** What is karat
-   A karat, when used with gold, is a unit of purity-- 24-karat gold is pure gold, 
+   A karat, when used with gold, is a unit of purity-- 24-karat gold is pure gold,
    but usually you mix gold with a metal like copper or silver to make jewelry
-   (because pure gold is too soft). Each karat indicates 1/24th of the whole. 
+   (because pure gold is too soft). Each karat indicates 1/24th of the whole.
    So if a piece of jewelry is made of metal that is 18 parts gold and 6 parts
    copper, that is 18-karat gold.

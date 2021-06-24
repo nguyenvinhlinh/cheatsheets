@@ -54,3 +54,26 @@ Two to build the main image. If the dependencies requirement changes, but deploy
    #+BEGIN_SRC text
    tail -f /dev/null
    #+END_SRC
+** How to beautify volume entry config in docker-compose?
+#+BEGIN_SRC text
+version: "3.7"
+services:
+  report-analyst-database:
+    image: postgres:11.4
+    ports:
+      - 9040:5432
+    volumes:
+      - REPORT_ANALYST_DATABASE_VOLUME:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=risklab-ra-local
+      - POSTGRES_USER=ttek
+      - POSTGRES_PASSWORD=ttek123
+
+volumes:
+  REPORT_ANALYST_DATABASE_VOLUME:
+    driver: local
+    driver_opts:
+        type: none
+        o: bind
+        device: D:\docker_volumes\report_analyst_database_volume
+#+END_SRC
