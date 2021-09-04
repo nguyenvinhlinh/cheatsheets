@@ -1,0 +1,113 @@
+** How to connect to IBM DB2 with python?
+#+BEGIN_SRC python
+import ibm_db
+dsn_hostname = "YourDb2Hostname" # e.g.: "54a2f15b-5c0f-46df-8954-7e38e612c2bd.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud"
+dsn_uid = "YourDb2Username"        # e.g. "abc12345"
+dsn_pwd = "YoueDb2Password"      # e.g. "7dBZ3wWt9XN6$o0J"
+
+dsn_driver = "{IBM DB2 ODBC DRIVER}"
+dsn_database = "BLUDB"            # e.g. "BLUDB"
+dsn_port = "YourPort"                # e.g. "32733"
+dsn_protocol = "TCPIP"            # i.e. "TCPIP"
+dsn_security = "SSL"              #i.e. "SSL"
+
+dsn = (
+    "DRIVER={0};"
+    "DATABASE={1};"
+    "HOSTNAME={2};"
+    "PORT={3};"
+    "PROTOCOL={4};"
+    "UID={5};"
+    "PWD={6};"
+    "SECURITY={7};").format(dsn_driver, dsn_database, dsn_hostname, dsn_port, dsn_protocol, dsn_uid, dsn_pwd,dsn_security)
+
+try:
+    conn = ibm_db.connect(dsn, "", "")
+    print ("Connected to database: ", dsn_database, "as user: ", dsn_uid, "on host: ", dsn_hostname)
+
+except:
+    print ("Unable to connect: ", ibm_db.conn_errormsg() )
+
+ibm_db.close(conn)
+#+END_SRC
+
+** How to create a view in IBM DB2
+#+BEGIN_SRC sql
+create view xxx(school_name, safety_rating, family_rating, environment_rating,
+               instruction_rating, leaders_rating, teachers_rating)
+as select name_of_school, safety_icon, family_involvement_icon, environment_icon,
+          instruction_icon, leaders_icon, teachers_icon
+   from chicago_public_schools;
+#+END_SRC
+
+** How to create a procedure
+#+BEGIN_SRC sql
+create or replace procedure update_leaders_score (IN in_school_id integer, IN in_leader_score integer)
+LANGUAGE SQL
+MODIFIES SQL DATA
+BEGIN
+  update chicago_public_schools
+  set chicago_public_schools.leaders_score = in_leader_score
+  where chicago_public_schools.school_id = in_school_id;
+
+  if in_leader_score >= 80 and in_leader_score <= 99 then
+    update chicago_public_schools
+    set chicago_public_schools.leaders_icon = 'Very strong'
+    where chicago_public_schools.school_id = in_school_id;
+  elseif  in_leader_score >= 60 and in_leader_score <= 79 then
+    update chicago_public_schools
+    set chicago_public_schools.leaders_icon = 'Strong'
+    where chicago_public_schools.school_id = in_school_id;
+  elseif in_leader_score >= 40 and in_leader_score <= 59 then
+    update chicago_public_schools
+    set chicago_public_schools.leaders_icon = 'Average'
+    where chicago_public_schools.school_id = in_school_id;
+  elseif in_leader_score >= 20 and in_leader_score <= 39 then
+    update chicago_public_schools
+    set chicago_public_schools.leaders_icon = 'Weak'
+    where chicago_public_schools.school_id = in_school_id;
+  else
+    update chicago_public_schools
+    set chicago_public_schools.leaders_icon = 'Very weak'
+    where chicago_public_schools.school_id = in_school_id;
+  end if;
+END
+#+END_SRC
+
+
+** How to create a transaction rollback/commit
+#+BEGIN_SRC sql
+create or replace procedure update_leaders_score (IN in_school_id integer, IN in_leader_score integer)
+LANGUAGE SQL
+MODIFIES SQL DATA
+BEGIN
+  update chicago_public_schools
+  set chicago_public_schools.leaders_score = in_leader_score
+  where chicago_public_schools.school_id = in_school_id;
+
+  if in_leader_score >= 80 and in_leader_score <= 99 then
+    update chicago_public_schools
+    set chicago_public_schools.leaders_icon = 'Very strong'
+    where chicago_public_schools.school_id = in_school_id;
+  elseif  in_leader_score >= 60 and in_leader_score <= 79 then
+    update chicago_public_schools
+    set chicago_public_schools.leaders_icon = 'Strong'
+    where chicago_public_schools.school_id = in_school_id;
+  elseif in_leader_score >= 40 and in_leader_score <= 59 then
+    update chicago_public_schools
+    set chicago_public_schools.leaders_icon = 'Average'
+    where chicago_public_schools.school_id = in_school_id;
+  elseif in_leader_score >= 20 and in_leader_score <= 39 then
+    update chicago_public_schools
+    set chicago_public_schools.leaders_icon = 'Weak'
+    where chicago_public_schools.school_id = in_school_id;
+  elseif in_leader_score >= 0 and in_leader_score <= 19 then
+    update chicago_public_schools
+    set chicago_public_schools.leaders_icon = 'Very weak'
+    where chicago_public_schools.school_id = in_school_id;
+  else
+    rollback work;
+  end if;
+  commit work;
+END
+#+END_SRC
