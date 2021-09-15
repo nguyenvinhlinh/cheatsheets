@@ -1,0 +1,21 @@
+** Which port should open for ETH node?
+30303
+** Which software should be used to check open port
+#+BEGIN_SRC http
+https://www.yougetsignal.com/tools/open-ports/
+#+END_SRC
+
+** Geth, How to attach to console?
+#+BEGIN_SRC sh
+.\geth.exe --config .\config.toml attach \\.\pipe\geth.ipc
+#+END_SRC
+
+** Geth, How to view syncing status?
+#+BEGIN_SRC sh
+eth.syncing
+#+END_SRC
+
+** Geth, How to view number of peers?
+#+BEGIN_SRC sh
+net.peerCount
+#+END_SRC
