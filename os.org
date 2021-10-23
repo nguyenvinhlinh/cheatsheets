@@ -137,9 +137,23 @@ sudo setcap CAP_NET_BIND_SERVICE=+eip path_to_binary_file
 |-----------------+-------+-------+-------+-------+--------+--------|
 ** How to subscribe RHEL system?
 #+BEGIN_SRC sh
-subscription-manager register;
-subscription-manager refresh;
-subscription-manager attach;
+  subscription-manager register;
+  subscription-manager refresh;
+  subscription-manager attach;
+
+** How to mount a network drive using NFS protocol?
+#+BEGIN_SRC sh
+  mkdir /mnt/NAS/disk_1;
+  mount --types nfs 192.168.x.x:/directory_X /mnt/NAS/disk_1;
+#+END_SRC
+
+** How to mount a network drive at start-up?
+   Edit file /etc/fstab, append an entry
+#+BEGIN_SRC text
+192.168.x.x:/directory_X /mnt/NAS/disk_1 nfs defaults 0 0
+#+END_SRC
+
+
 #+END_SRC
 ** How to get current zone with firewall-cmd?
 * KEYSCAN ISSUE gather all public key or not ??????
