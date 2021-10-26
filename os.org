@@ -156,7 +156,7 @@ sudo setcap CAP_NET_BIND_SERVICE=+eip path_to_binary_file
 ** How to mount a network drive using CIFS (SMB) protocol?
 #+BEGIN_SRC sh
   mkdir /mnt/NAS/disk_1;
-  mount --types cifs -o uid=1000,gid=1000,vers=3,credentials=/home/yourhome/.nasauth 192.168.x.x:/directory_X /mnt/NAS/disk_1;
+  mount --types cifs -o uid=1000,gid=1000,vers=3,credentials=/home/yourhome/.nasauth //192.168.x.x:/directory_X /mnt/NAS/disk_1;
 #+END_SRC
 
 It's important to append `uid` and `gid`, these attributes will be used to assign ownership of mounted directory. After mounting, check ownership with following command `ls -lah`.
@@ -176,7 +176,7 @@ password=yyy
 
 ** How to mount a network drive (CIFS protocol) at start-up?
 #+BEGIN_SRC text
-//192.168.1.235/Disk_1 /mnt/CaHeoNas/disk_1 cifs uid=1000,gid=1000,vers=3,credentials=/home/yourhome/.auth 0 0
+//192.168.x.x/directory_X /mnt/NAS/disk_1 cifs uid=1000,gid=1000,vers=3,credentials=/home/yourhome/.auth 0 0
 #+END_SRC
 
 ** How to get current zone with firewall-cmd?
