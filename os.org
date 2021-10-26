@@ -153,7 +153,7 @@ sudo setcap CAP_NET_BIND_SERVICE=+eip path_to_binary_file
 192.168.x.x:/directory_X /mnt/NAS/disk_1 nfs defaults 0 0
 #+END_SRC
 
-** How to mount a network drive using CIFS (SMB) protocol?
+** How to mount a network drive using CIFS protocol?
 #+BEGIN_SRC sh
   mkdir /mnt/NAS/disk_1;
   mount --types cifs -o uid=1000,gid=1000,vers=3,credentials=/home/yourhome/.nasauth //192.168.x.x:/directory_X /mnt/NAS/disk_1;
