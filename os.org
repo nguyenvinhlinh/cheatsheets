@@ -147,13 +147,37 @@ sudo setcap CAP_NET_BIND_SERVICE=+eip path_to_binary_file
   mount --types nfs 192.168.x.x:/directory_X /mnt/NAS/disk_1;
 #+END_SRC
 
-** How to mount a network drive at start-up?
+** How to mount a network drive (nfs protocol) at start-up?
    Edit file /etc/fstab, append an entry
 #+BEGIN_SRC text
 192.168.x.x:/directory_X /mnt/NAS/disk_1 nfs defaults 0 0
 #+END_SRC
 
-
+** How to mount a network drive using CIFS (SMB) protocol?
+#+BEGIN_SRC sh
+  mkdir /mnt/NAS/disk_1;
+  mount --types cifs -o uid=1000,gid=1000,vers=3,credentials=/home/yourhome/.nasauth 192.168.x.x:/directory_X /mnt/NAS/disk_1;
 #+END_SRC
+
+It's important to append `uid` and `gid`, these attributes will be used to assign ownership of mounted directory. After mounting, check ownership with following command `ls -lah`.
+
+To extract `uid` and `gid` numbers, use the following command.
+
+- `id`: get all attribute of current login user
+- `id -u`: get `uid` of current login user
+- `id -g`: get `gid` of current login user
+
+In addition, to hide authentication info from fstab file. Credentials data is passed by attribute named `credentials` with `600` permission. This is credential schema.
+
+#+BEGIN_SRC text
+username=xxx
+password=yyy
+#+END_SRC
+
+** How to mount a network drive (CIFS protocol) at start-up?
+#+BEGIN_SRC text
+//192.168.1.235/Disk_1 /mnt/CaHeoNas/disk_1 cifs uid=1000,gid=1000,vers=3,credentials=/home/yourhome/.auth 0 0
+#+END_SRC
+
 ** How to get current zone with firewall-cmd?
 * KEYSCAN ISSUE gather all public key or not ??????
