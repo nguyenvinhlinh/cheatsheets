@@ -179,5 +179,10 @@ password=yyy
 //192.168.x.x/directory_X /mnt/NAS/disk_1 cifs uid=1000,gid=1000,vers=3,credentials=/home/yourhome/.auth 0 0
 #+END_SRC
 
+** How to list all `mount service` with systemctl
+#+BEGIN_SRC sh
+systemctl list-units --type=mount
+#+END_SRC
+
 ** How to get current zone with firewall-cmd?
 * KEYSCAN ISSUE gather all public key or not ??????
