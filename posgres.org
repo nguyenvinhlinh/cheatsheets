@@ -71,6 +71,10 @@ psql < dumpsql.sql
    select * from temp.table_name where array_type_column_name @> '{term}';
    #+END_SRC
 
+** How to set next id sequence value to max(id) from table?
+#+BEGIN_SRC sql
+SELECT setval('table_id_seq', (SELECT MAX(id) FROM table));
+#+END_SRC
 
 pg_dump --file schema_odm_cusdec_20190603_183100.sql --data-only --host 127.0.0.1 --port 5432 --username nguyenvinhlinh --verbose --format=p --schema "odm_cusdec" "risk_management_system_dev
 psql -h 127.0.0.1 -p 5432 -d risk_management_system_dev -U nguyenvinhlinh < ~/Dropbox/Projects/MexicoRMS-Demo/SQL/public/schema_public_20190529-023200.sql
