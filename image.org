@@ -1,0 +1,6 @@
+* How to resize to fixed width, proportional height with ImageMagick ?
+
+#+BEGIN_SRC sh
+$ mogrify -resize 1920x -path /OUTPUT_PATH/ /INPUT_PATH_OR_FILE/ # Scale to fixed 1920px as width and keep proportional height
+$ mogrify -resize x800 -path /OUTPUT_PATH/ /INPUT_PATH_OR_FILE/ # Scale to fixed 800px as height and keep proportional width
+#+END_SRC
