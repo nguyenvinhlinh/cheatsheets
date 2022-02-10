@@ -74,7 +74,6 @@ BEGIN
 END
 #+END_SRC
 
-
 ** How to create a transaction rollback/commit
 #+BEGIN_SRC sql
 create or replace procedure update_leaders_score (IN in_school_id integer, IN in_leader_score integer)
@@ -110,4 +109,14 @@ BEGIN
   end if;
   commit work;
 END
+#+END_SRC
+** How to split data to trained and test data?
+
+#+BEGIN_SRC python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+# Load and split data
+data = load_iris()
+Xtrain, Xtest, Ytrain, Ytest = train_test_split(data.data, data.target, test_size=0.3, random_state=4)
 #+END_SRC
