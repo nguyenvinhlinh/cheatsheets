@@ -120,3 +120,15 @@ from sklearn.model_selection import train_test_split
 data = load_iris()
 Xtrain, Xtest, Ytrain, Ytest = train_test_split(data.data, data.target, test_size=0.3, random_state=4)
 #+END_SRC
+
+
+** How to plot data from pandas's dataframe?
+#+BEGIN_SRC python
+# pd_excel_data: pandas dataframe instance.
+import matplotlib.pyplot as plt
+x = pd_excel_data['2017']['Week']
+y = pd_excel_data['2017']['USD/Gallon']
+plt.figure(figsize=(10,5))
+plt.plot(x, y)
+plt.show()
+#+END_SRC
