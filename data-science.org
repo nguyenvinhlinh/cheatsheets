@@ -144,3 +144,10 @@ partial_match_vector = np.vectorize(partial_match)
 # Using vectorization and getting desired result by putting threshold on score
 df_vehicle['score'] = partial_match_vector(df_vehicle['make'], df_vehicle_['referene_make_name'])
 #+END_SRC
+
+** How to extract date from pandas.datetime64
+
+#+BEGIN_SRC python
+df['date'] = df['datetime'].dt.date
+#+END_SRC
+The datatype of df['date'] now is object with value `2019-04-23`
