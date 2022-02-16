@@ -151,3 +151,8 @@ df_vehicle['score'] = partial_match_vector(df_vehicle['make'], df_vehicle_['refe
 df['date'] = df['datetime'].dt.date
 #+END_SRC
 The datatype of df['date'] now is object with value `2019-04-23`
+
+** How to display dataframe horizontally?
+#+BEGIN_SRC python
+pd.set_option('display.expand_frame_repr', False)
+#+END_SRC
