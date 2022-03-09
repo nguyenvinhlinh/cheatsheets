@@ -139,3 +139,10 @@ sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/lib/erlang/erts-8.1/bin/beam.smp
 #+BEGIN_SRC sh
 sudo setcap CAP_NET_BIND_SERVICE=+eip /home/ubuntu/myapp/_build/prod/rel/myapp/erts-8.1/bin/run_erl
 #+END_SRC
+
+** How to execute raw sql
+#+BEGIN_SRC elixir
+Ecto.Adapters.SQL.query!(
+  MyApp.Repo, "SELECT * FROM users where name = $1", ["Hubert"]
+)
+#+END_SRC
