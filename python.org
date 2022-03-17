@@ -25,6 +25,33 @@ pip list
 pip freeze > requirements.txt
 #+END_SRC
 ** How to install package from requirements.txt
+
 #+BEGIN_SRC shell
 pip install -r requirements.txt
+#+END_SRC
+
+** Separate module / use blueprint with Flask?
+#+BEGIN_SRC python
+# app.py
+from blueprint_module import blueprint
+
+app = Flask(__name__)
+app.register_blueprint(blueprint)
+#+END_SRC
+
+#+BEGIN_SRC python
+
+# blueprint_module\__init__.py
+from flask import Blueprint
+blueprint = Blueprint('my_blueprint', __name__)
+from . import page
+#+END_SRC
+
+#+BEGIN_SRC python
+# blueprint_module\page.py
+from . import blueprint
+
+@blueprint.route("/url", methods=['GET'])
+def hello():
+  return 'hello world'
 #+END_SRC
