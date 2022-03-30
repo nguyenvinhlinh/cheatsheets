@@ -189,6 +189,14 @@ systemctl list-units --type=mount
 systemctl daemon-reload
 #+END_SRC
 
+** How to add L2TP module to network manager to support VPN L2TP?
+#+BEGIN_SRC sh
+sudo dnf install xl2tpd
+sudo dnf install NetworkManager-l2tp
+sudo dnf install NetworkManager-l2tp-gnome
+sudo service NetworkManager restart
+#+END_SRC
+
 
 ** How to get current zone with firewall-cmd?
 * KEYSCAN ISSUE gather all public key or not ??????

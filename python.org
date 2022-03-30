@@ -69,3 +69,15 @@ $ pip install --extra-index-url https://alpine-wheels.github.io/index pandas
 
 pandas
 #+END_SRC
+
+** How to find python package which does not have `wheels`?
+#+BEGIN_SRC sh
+pip install --force-reinstall -r requirements.txt --only-binary=:all:
+#+END_SRC
+
+** How to find python package which does not have `wheels` faster?
+#+BEGIN_SRC sh
+mkdir -p downloads
+pip download -r ./requirements.txt  --dest downloads
+ls downloads/*.tar.gz
+#+END_SRC
