@@ -156,3 +156,8 @@ The datatype of df['date'] now is object with value `2019-04-23`
 #+BEGIN_SRC python
 pd.set_option('display.expand_frame_repr', False)
 #+END_SRC
+
+** How to load external python file to jupyter book?
+#+BEGIN_SRC text
+%load ../lib/KhiemTop2Vec
+#+END_SRC
