@@ -197,6 +197,11 @@ sudo dnf install NetworkManager-l2tp-gnome
 sudo service NetworkManager restart
 #+END_SRC
 
+** How to denote a base of number?
+- 0b11101: (`b`) Binary - base 2
+- 0o35   : (`o`) Octal, denoted by an o, base 8
+- 0d29   : (`d`) Decimal, this is unusual because we assume numbers without a prefix are decimal, base 10
+- 0x1D   : (`x`) Hexadecimal, base 16
 
 ** How to get current zone with firewall-cmd?
 * KEYSCAN ISSUE gather all public key or not ??????
