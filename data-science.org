@@ -161,3 +161,8 @@ pd.set_option('display.expand_frame_repr', False)
 #+BEGIN_SRC text
 %load ../lib/KhiemTop2Vec
 #+END_SRC
+
+** How to refresh `nvidia-smi` automatically?
+#+BEGIN_SRC sh
+nvidia-smi --loop=1
+#+END_SRC
