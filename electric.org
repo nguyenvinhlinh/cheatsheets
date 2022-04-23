@@ -1,0 +1,4 @@
+* What does L, N, E mean?
+- L: **Line**
+- N: **Neutral**
+- E: **Earth**
