@@ -166,3 +166,35 @@ pd.set_option('display.expand_frame_repr', False)
 #+BEGIN_SRC sh
 nvidia-smi --loop=1
 #+END_SRC
+
+** How to merge two dataframe vertically?
+#+BEGIN_SRC python
+df_1 = pd.DataFrame.from_dict(
+    {
+        'column_1': ['v1','v2','v3'],
+        'column_2': ['v4',None,'v6']
+    }
+)
+#+END_SRC
+
+#+CAPTION: df_1
+[[./images/data-science/1.PNG]]
+
+#+BEGIN_SRC python
+df_2 =  pd.DataFrame.from_dict(
+    {
+        'column_1': ['v1','v2','v3'],
+        'column_3': ['v10', 'v11', None]
+    }
+)
+#+END_SRC
+
+#+CAPTION: df_2
+[[./images/data-science/2.PNG]]
+
+#+BEGIN_SRC python
+df_merge = df_1.merge(df_2, on=['column_1'], how='left')
+#+END_SRC
+
+#+CAPTION: df_merge
+[[./images/data-science/3.PNG]]
