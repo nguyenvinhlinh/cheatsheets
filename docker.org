@@ -45,6 +45,7 @@ there's always a snapshoot of built dependencies which are good and ready to dep
 1. When code changes, there might need to run two build process consequently, One to build the base image(dependencies),
 Two to build the main image. If the dependencies requirement changes, but deployers forget to upgrade base image, Of
  course, they cannot deploy and run application successfully.
+
 ** How to start docker daemon on centos
    #+BEGIN_SRC shell
    sudo systemctl start docker
@@ -76,4 +77,9 @@ volumes:
         type: none
         o: bind
         device: D:\docker_volumes\report_analyst_database_volume
+#+END_SRC
+
+** How to run a docker image overrided entrypoint
+#+BEGIN_SRC sh
+docker run -it --entrypoint /bin/bash [docker_image]
 #+END_SRC
