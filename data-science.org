@@ -198,3 +198,39 @@ df_merge = df_1.merge(df_2, on=['column_1'], how='left')
 
 #+CAPTION: df_merge
 [[./images/data-science/3.PNG]]
+
+** 13. How to create Dataset in Pytorch?
+#+BEGIN_SRC  python
+from torch.utils.data import Dataset
+class Data(Dataset):
+    # Constructor
+    def __init__(self):
+        self.x = torch.arange(-3, 3, 0.1).view(-1, 1)
+        self.f = 1 * self.x - 1
+        self.y = self.f + 0.1 * torch.randn(self.x.size())
+        self.len = self.x.shape[0]
+
+    # Getter
+    def __getitem__(self,index):
+        return self.x[index],self.y[index]
+
+    # Get Length
+    def __len__(self):
+        return self.len
+#+END_SRC
+
+** 14. How to create Dataloader in Pytorch?
+#+BEGIN_SRC python
+from torch.utils.data import DataLoader
+
+dataset = Data()
+trainloader = DataLoader(dataset = dataset, batch_size = 1)
+#+END_SRC
+
+
+** 15. How to use built-in criterion function from Pytorch?
+#+BEGIN_SRC python
+from torch import nn
+
+criterion = nn.MSELoss()
+#+END_SRC
