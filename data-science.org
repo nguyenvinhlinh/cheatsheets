@@ -234,3 +234,8 @@ from torch import nn
 
 criterion = nn.MSELoss()
 #+END_SRC
+
+** 16. How to group by then count records?
+#+BEGIN_SRC python
+df.groupby(['col1', 'col2']).size().reset_index(name='counts')
+#+END_SRC
