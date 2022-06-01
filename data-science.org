@@ -239,3 +239,8 @@ criterion = nn.MSELoss()
 #+BEGIN_SRC python
 df.groupby(['col1', 'col2']).size().reset_index(name='counts')
 #+END_SRC
+
+** 17. How to get a list of all values in a column, pandas?
+#+BEGIN_SRC python
+hs6_list = hs6_count_df["HS6"].tolist()
+#+END_SRC
