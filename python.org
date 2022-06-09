@@ -81,3 +81,25 @@ mkdir -p downloads
 pip download -r ./requirements.txt  --dest downloads
 ls downloads/*.tar.gz
 #+END_SRC
+
+** Where does python install on window?
+#+BEGIN_SRC text
+C:\Users\nguye\AppData\Local\Programs\Python\Python39
+#+END_SRC
+
+** How to fix pipenv error while installing `pip install pipenv`
+Reason: conflict with `virtualenv`
+- Step 1: remove `virtualenv`:
+#+BEGIN_SRC sh
+pip uninstall virtualenv
+#+END_SRC
+
+- Step 2: remove `pipenv`:
+#+BEGIN_SRC sh
+pip uninstall pipenv
+#+END_SRC
+
+- Step 3: install `pipenv` again
+#+BEGIN_SRC sh
+pip install pipenv
+#+END_SRC
