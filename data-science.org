@@ -244,3 +244,13 @@ df.groupby(['col1', 'col2']).size().reset_index(name='counts')
 #+BEGIN_SRC python
 hs6_list = hs6_count_df["HS6"].tolist()
 #+END_SRC
+
+** 18. Error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
+Step 1: Go to https://visualstudio.microsoft.com/visual-cpp-build-tools/
+Step 2: Under `Workloads`, choose `C++ build tools`. Select
+- Windows 10 SDK
+- C++ x64/x86 build tools
+- C++ Cmake tools for window.
+
+#+CAPTION: Visual Studio Installer
+[[./images/data-science/4.PNG]]
