@@ -1,12 +1,14 @@
 ** 1. How to extract audio from video with ffmpeg?
 #+BEGIN_SRC sh
-ffmpeg -i INPUT_FILE_NAME -vn -b:a 128k -ar 44100 -y OUTPUT_FILE_NAME;
+ffmpeg -i INPUT_FILE_NAME -vn -b:a 128k -ar 44100 -ac 2 OUTPUT_FILE_NAME;
 #+END_SRC
-
+|------+-------------------------------------------|
+| flag | description                               |
 |------+-------------------------------------------|
 | -vn  | block all video streams                   |
 | -b:a | set bitrate audio, 128k bitrate for audio |
 | -ar  | audio sampling frequency, 44100           |
+| -ac  | audio channels, 2                         |
 |------+-------------------------------------------|
 
 
@@ -16,6 +18,6 @@ ffmpeg -i INPUT_FILE_NAME -vn -b:a 128k -ar 44100 -y OUTPUT_FILE_NAME;
 echo webm to mp3 converter! Work begins!
 for FILE in *.webm; do
     echo -e "Processing file '$FILE'";
-    ffmpeg -i "${FILE}" -vn -ab 128k -ar 44100 -y "${FILE%.webm}.mp3";
+    ffmpeg -i "${FILE}" -vn -b:a 128k -ar 44100 -ac 2 "${FILE%.webm}.mp3";
 done;
 #+END_SRC
