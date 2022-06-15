@@ -254,3 +254,15 @@ Step 2: Under `Workloads`, choose `C++ build tools`. Select
 
 #+CAPTION: Visual Studio Installer
 [[./images/data-science/4.PNG]]
+
+** 19. How to ignore future warning?
+#+BEGIN_SRC python
+import warnings
+warnings.filterwarnings("ignore")
+#+END_SRC
+
+** 20. How to print and clean previous line?
+#+BEGIN_SRC python
+for i in range(61):
+    print(f"\r{i}", end="")
+#+END_SRC
