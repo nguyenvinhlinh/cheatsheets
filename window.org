@@ -1,0 +1,7 @@
+** How to info of package?
+
+#+BEGIN_SRC bat
+winget show PACKAGE_NAME_OR_ID
+#+END_SRC
+
+**

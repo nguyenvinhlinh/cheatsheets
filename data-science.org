@@ -254,3 +254,8 @@ Step 2: Under `Workloads`, choose `C++ build tools`. Select
 
 #+CAPTION: Visual Studio Installer
 [[./images/data-science/4.PNG]]
+
+** 19. What is special character in bert model?
+- CLS: Classification
+- PAD: Padding
+- SEP: Seperator
