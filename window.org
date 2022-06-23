@@ -4,4 +4,10 @@
 winget show PACKAGE_NAME_OR_ID
 #+END_SRC
 
-**
+** How to do head, tail in window
+`gc` refers to get content.
+#+BEGIN_SRC bat
+gc log.txt -head 10
+gc log.txt -tail 10
+gc log.txt -tail 10 -wait # equivalent to tail -f
+#+END_SRC
