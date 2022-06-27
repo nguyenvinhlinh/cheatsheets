@@ -1,4 +1,9 @@
 ** How to start nginx on centos?
-   #+BEGIN_SRC bash
-   sudo systemctl start nginx
-   #+END_SRC
+#+BEGIN_SRC bash
+sudo systemctl start nginx
+#+END_SRC
+
+** Where id default nginx config directory?
+#+BEGIN_SRC sh
+/etc/nginx
+#+END_SRC
