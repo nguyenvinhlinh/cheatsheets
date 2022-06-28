@@ -272,3 +272,29 @@ warnings.filterwarnings("ignore")
 for i in range(61):
     print(f"\r{i}", end="")
 #+END_SRC
+
+
+** 22. How to plot category
+Pandas dataframe
+| category | description |
+|----------+-------------|
+| cate_x   | desc_1      |
+| cate_y   | desc_2      |
+| cate_y   | desc_3      |
+| cate_z   | desc_4      |
+
+Category Occurece
+| category | no_of_occurence |
+|----------+-----------------|
+| cate_x   |               1 |
+| cate_y   |               2 |
+| cate_z   |               3 |
+
+Ploting
+#+BEGIN_SRC python
+df.groupby(['category']).size().plot.bar()
+#+END_SRC
+
+Chart (example)
+#+CAPTION: df_1
+[[./images/data-science/5.png]]
