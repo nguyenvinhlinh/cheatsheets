@@ -298,3 +298,12 @@ df.groupby(['category']).size().plot.bar()
 Chart (example)
 #+CAPTION: df_1
 [[./images/data-science/5.png]]
+
+** 23. How to get probability from multi-class classification model, and topk?
+
+#+BEGIN_SRC python
+number_of_top = 5
+output = model(text)
+prob = nnf.softmax(output, dim=1)
+top_p, top_class = prob.topk(5, dim = 1)
+#+END_SRC
