@@ -1,7 +1,7 @@
 ** Install python's dependency requirement on fedora?
 #+BEGIN_SRC sh
 dnf install -y  bzip2-devel ncurses-devel libffi-devel \
-    readline-devel openssl-devel sqlite3 sqlite-devel \
+    readline-devel openssl-devel sqlite sqlite-devel \
     tk tk-devel
 #+END_SRC
 
