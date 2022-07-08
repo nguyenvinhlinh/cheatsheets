@@ -110,3 +110,20 @@ pip uninstall pipenv
 #+BEGIN_SRC sh
 pip install pipenv
 #+END_SRC
+
+** When to use `with` in python?
+First of all, `with` is used to handle exception in python. In addition, it makes code looks cleaner and more readable.
+This is example of handling exception:
+- Without using `with`
+#+BEGIN_SRC python
+file = open('file_path', 'w')
+try:
+    file.write('hello world')
+finally:
+    file.close()
+#+END_SRC
+- With using `with`
+#+BEGIN_SRC python
+with open('file_path', 'w') as file:
+    file.write('hello world !')
+#+END_SRC
