@@ -203,5 +203,14 @@ sudo service NetworkManager restart
 - 0d29   : (`d`) Decimal, this is unusual because we assume numbers without a prefix are decimal, base 10
 - 0x1D   : (`x`) Hexadecimal, base 16
 
+** Where is nautilus script?
+#+BEGIN_SRC sh
+~/.local/share/nautilus/scripts
+#+END_SRC
+
+** How to debug nautilus script?
+Open terminal and type ~nautilus --browser~
+
 ** How to get current zone with firewall-cmd?
+
 * KEYSCAN ISSUE gather all public key or not ??????
