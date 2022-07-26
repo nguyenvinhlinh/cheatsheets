@@ -209,7 +209,14 @@ sudo service NetworkManager restart
 #+END_SRC
 
 ** How to debug nautilus script?
-Open terminal and type ~nautilus --browser~
+Open terminal and type
+#+BEGIN_SRC sh
+nautilus --browser
+#+END_SRC
+
+** Where is systemctl service file config?
+- **/usr/lib/systemd/user**: it's for systemctl --user services
+- **/etc/systemd/system**: it's for systemctl os-wide services
 
 ** How to get current zone with firewall-cmd?
 
