@@ -1,0 +1,12 @@
+** 1. How to debug bashscript?
+#+BEGIN_SRC sh
+set -x
+#+END_SRC
+
+** 2. How to terminate/stop bashscript if there is a line which cause error?
+#+BEGIN_SRC sh
+set -e
+#+END_SRC
+
+** 3. What does `exec` do?
+View this [[https://hexalink.xyz/linux/2022/07/27/Phan-tich-exec-trong-shell-script.html]]
