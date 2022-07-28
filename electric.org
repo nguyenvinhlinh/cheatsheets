@@ -2,3 +2,8 @@
 - L: **Line**
 - N: **Neutral**
 - E: **Earth**
+
+* VGA Power Connector component
+- 8-Pin: 4.2mm, 8 pin
+- 6-Pin: 4.2mm, 6 pin
+- Terminal 5557:  4.2Mm 5557 (tiếng Việt gọi là cos, /cốt/)
