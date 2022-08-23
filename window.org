@@ -11,3 +11,8 @@ gc log.txt -head 10
 gc log.txt -tail 10
 gc log.txt -tail 10 -wait # equivalent to tail -f
 #+END_SRC
+
+** How to flush/clear DNS
+#+BEGIN_SRC sh
+ipconfig /flushdns
+#+END_SRC
