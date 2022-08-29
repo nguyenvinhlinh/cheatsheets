@@ -19,3 +19,9 @@ eth.syncing
 #+BEGIN_SRC sh
 net.peerCount
 #+END_SRC
+
+** Geth, How to view balance of any address?
+First of all, you need to attach to geth console. After that, run this command.
+#+BEGIN_SRC sh
+web3.eth.getBalance('0x2910543af39aba0cd09dbb2d50200b3e800a63d2')
+#+END_SRC
