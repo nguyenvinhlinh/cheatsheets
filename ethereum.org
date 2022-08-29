@@ -22,6 +22,12 @@ net.peerCount
 
 ** Geth, How to view balance of any address?
 First of all, you need to attach to geth console. After that, run this command.
-#+BEGIN_SRC sh
+#+BEGIN_SRC javascript
 web3.eth.getBalance('0x2910543af39aba0cd09dbb2d50200b3e800a63d2')
+#+END_SRC
+
+** Geth, How to list all peers?
+First of all, you need to attach to geth console. After that, run this command.
+#+BEGIN_SRC javascript
+admin.peers
 #+END_SRC
