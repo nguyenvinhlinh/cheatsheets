@@ -2,3 +2,10 @@
 #+BEGIN_SRC text
 https://www.talend.com/products/data-integration-manuals-release-notes/
 #+END_SRC
+
+** Format Date in Talend?
+#+BEGIN_SRC java
+context.max_updated_date = input_row.max_updated_date;
+String c = TalendDate.formatDate("yyyy-MM-dd HH:mm:ss.SSS", context.max_updated_date);
+System.out.println(c);
+#+END_SRC
