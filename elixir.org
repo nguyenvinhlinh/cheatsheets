@@ -14,14 +14,14 @@
 require Integer
 Integer.is_even(1)
 #+END_SRC
-- _Import_: Import function/macro from module to current module. _Importing_ will 
-require a module automatically, as a consequence, you can have run any function of imported __MODULE__. 
+- _Import_: Import function/macro from module to current module. _Importing_ will
+require a module automatically, as a consequence, you can have run any function of imported __MODULE__.
 
 #+BEGIN_SRC elixir
 import Integer, only: [is_even: 1]
 is_even(2)
 Integer.is_odd(2)
-#+END_SRC 
+#+END_SRC
 - _Use_: _Use_ requires a module, then run a callback function of the module.
 #+BEGIN_SRC Elixir
 defmodule A do
@@ -34,23 +34,34 @@ defmodule A do
 end
 #+END_SRC
 
-** How to apply plug for particular function 
+** How to apply plug for particular function
    #+BEGIN_SRC elixir
    plug :check_product_owner when action in [:create, :delete]
    #+END_SRC
 
+** How to run particular test
+- Assign a tag `@tag mustexec: true` right above the test.
+#+BEGIN_SRC elixir
+  @tag mustexec: true
+  test "true" do
+    assert(true)
+  end
+#+END_SRC
+- Execute mix test with `--only` flag.
+#+BEGIN_SRC sh
+mix test --only mustexec
+#+END_SRC
 
-   
-   
+
 ** TODO
-- research on process, note them all down 
-- research on How elixir save STATE 
+- research on process, note them all down
+- research on How elixir save STATE
 
 
 
 ** What is agent ?
-First of all, Agent is a name of module. By using Agent, you can make a 
-separated process which store state. The state can be share among another process. 
+First of all, Agent is a name of module. By using Agent, you can make a
+separated process which store state. The state can be share among another process.
 
 ** What is the order of start_link and init in GenServer.
    start_link/3 comes first then init/1. The second argument of start_link/3 will be then passed to init/1.
