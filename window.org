@@ -1,3 +1,4 @@
+
 ** How to info of package?
 
 #+BEGIN_SRC bat
@@ -15,4 +16,15 @@ gc log.txt -tail 10 -wait # equivalent to tail -f
 ** How to flush/clear DNS
 #+BEGIN_SRC sh
 ipconfig /flushdns
+#+END_SRC
+
+** Cannot type in Start Menu, how to fix?
+- Press Windows + X keys on the keyboard, select Command prompt (admin).
+- Enter the below commands one by one and hit Enter key.
+#+BEGIN_SRC bat
+PowerShell -ExecutionPolicy Unrestricted
+#+END_SRC
+- It will open the PowerShell window. Now enter the below command and hit Enter key.
+#+BEGIN_SRC bat
+Get-AppXPackage -AllUsers |Where-Object {$_.InstallLocation -like "*SystemApps*"} | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 #+END_SRC
