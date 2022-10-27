@@ -1,10 +1,11 @@
 ** Installing Erlang dependency package for Fedora?
 #+BEGIN_SRC sh
-sudo dnf groupinstall -y 'Development Tools' 'C Development Tools and Libraries';
-sudo dnf install -y autoconf;
-sudo dnf install -y ncurses-devel;
-sudo dnf install -y wxGTK3-devel wxBase3;
-sudo dnf install -y openssl-devel;
-sudo dnf install -y libiodbc unixODBC.x86_64 erlang-odbc.x86_64;
-sudo dnf install -y libxslt;
+  sudo dnf groupinstall -y 'Development Tools' 'C Development Tools and Libraries';
+  sudo dnf install -y autoconf;
+  sudo dnf install -y ncurses-devel;
+  sudo dnf install -y wxGTK3-devel wxBase3;
+  sudo dnf install -y openssl-devel;
+  sudo dnf install -y java-1.8.0-openjdk-devel
+  sudo dnf install -y libiodbc unixODBC.x86_64 erlang-odbc.x86_64;
+  sudo dnf install -y libxslt fop;
 #+END_SRC
