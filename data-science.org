@@ -307,3 +307,12 @@ output = model(text)
 prob = nnf.softmax(output, dim=1)
 top_p, top_class = prob.topk(5, dim = 1)
 #+END_SRC
+
+** 24. How to setup jupyter lab?
+#+BEGIN_SRC sh
+  $ mkdir PROJECT_NAME && cd PROJECT_NAME
+  $ pipenv install
+  $ pipenv install jupyterlab
+  $ pipenv shell
+  $ jupyter lab
+#+END_SRC
