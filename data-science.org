@@ -1,3 +1,5 @@
+
+
 ** 1. How to connect to IBM DB2 with python?
 #+BEGIN_SRC python
 import ibm_db
@@ -315,4 +317,9 @@ top_p, top_class = prob.topk(5, dim = 1)
   $ pipenv install jupyterlab
   $ pipenv shell
   $ jupyter lab
+#+END_SRC
+
+** 25. How to execute jupyter book in terminal?
+#+BEGIN_SRC sh
+jupyter execute 03-Fetch-Jet-Fuel-and-insert.ipynb
 #+END_SRC
