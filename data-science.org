@@ -323,3 +323,21 @@ top_p, top_class = prob.topk(5, dim = 1)
 #+BEGIN_SRC sh
 jupyter execute 03-Fetch-Jet-Fuel-and-insert.ipynb
 #+END_SRC
+
+** How to do read_sql() with dynamic table name & ?
+#+BEGIN_SRC python
+  import pandas as pd
+
+  sql = """
+  select id from {table_name} dp
+  where inserted_at <= %(evaluated_date)s
+  """
+
+  df_params = {
+      "evaluated_date": '2022-11-28',
+      "table_name": 'diesel_prices'
+  }
+
+  sql = sql.format(**df_params)
+  df = pd.read_sql(sql, con=engine, params=df_params)
+#+END_SRC
