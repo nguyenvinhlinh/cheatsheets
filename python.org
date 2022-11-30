@@ -127,3 +127,9 @@ finally:
 with open('file_path', 'w') as file:
     file.write('hello world !')
 #+END_SRC
+
+** How to store pipenv's environment in different directory?
+Set environment variables named `WORKON_HOME`
+#+BEGIN_SRC sh
+export WORKON_HOME=/mnt/d/.virtualenvs
+#+END_SRC
