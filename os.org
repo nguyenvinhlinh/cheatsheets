@@ -163,6 +163,11 @@ It's important to append `uid` and `gid`, these attributes will be used to assig
 
 To extract `uid` and `gid` numbers, use the following command.
 
+#+BEGIN_SRC sh
+  $ id -u
+  $ id -g
+#+END_SRC
+
 - `id`: get all attribute of current login user
 - `id -u`: get `uid` of current login user
 - `id -g`: get `gid` of current login user
