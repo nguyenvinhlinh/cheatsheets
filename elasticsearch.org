@@ -1,0 +1,26 @@
+* File Config
+- /etc/elasticsearch/elasticsearch.yml: Configures the Elasticsearch server settings.
+  This is where most options are stored, which is why we are mostly interested in this file.
+- /etc/elasticsearch/jvm.options: Provides configuration for the JVM such as memory settings.
+
+* Reset the password of the elastic built-in superuser
+#+BEGIN_SRC sh
+  $ /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+#+END_SRC
+
+* Generate an enrollment token for Kibana instances
+#+BEGIN_SRC sh
+  $ /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+#+END_SRC
+
+
+* Generate an enrollment token for Elasticsearch nodes
+#+BEGIN_SRC sh
+  $ /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s node
+#+END_SRC
+
+*  If this node should join an existing cluster, you can run
+#+BEGIN_SRC sh
+  $ /usr/share/elasticsearch/bin/elasticsearch-reconfigure-node --enrollment-token <token-here>
+#+END_SRC
+after creating an enrollment token on your existing cluster.
