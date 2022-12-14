@@ -1,0 +1,5 @@
+* Where is kibana keystores?
+~/etc/kibana/kibana.keystore~
+
+* Kibana default url?
+~http://localhost:5601/~

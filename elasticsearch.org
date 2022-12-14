@@ -1,7 +1,7 @@
 * File Config
-- /etc/elasticsearch/elasticsearch.yml: Configures the Elasticsearch server settings.
+- ~/etc/elasticsearch/elasticsearch.yml~: Configures the Elasticsearch server settings.
   This is where most options are stored, which is why we are mostly interested in this file.
-- /etc/elasticsearch/jvm.options: Provides configuration for the JVM such as memory settings.
+- ~/etc/elasticsearch/jvm.options~: Provides configuration for the JVM such as memory settings.
 
 * Reset the password of the elastic built-in superuser
 #+BEGIN_SRC sh
