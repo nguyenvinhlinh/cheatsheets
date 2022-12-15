@@ -24,3 +24,5 @@
   $ /usr/share/elasticsearch/bin/elasticsearch-reconfigure-node --enrollment-token <token-here>
 #+END_SRC
 after creating an enrollment token on your existing cluster.
+
+* Default port: ~9200~

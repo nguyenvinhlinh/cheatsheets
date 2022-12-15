@@ -1,8 +1,7 @@
 * Where is kibana keystores?
 ~/etc/kibana/kibana.keystore~
 
-* Kibana default url?
-~http://localhost:5601/~
+* Kibana default port? ~5601~
 
 * Where is executable binary files?
 ~/usr/share/kibana/bin~
