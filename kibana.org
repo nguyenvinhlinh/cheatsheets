@@ -3,3 +3,6 @@
 
 * Kibana default url?
 ~http://localhost:5601/~
+
+* Where is executable binary files?
+~/usr/share/kibana/bin~
