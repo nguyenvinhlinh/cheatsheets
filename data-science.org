@@ -319,12 +319,15 @@ top_p, top_class = prob.topk(5, dim = 1)
   $ jupyter lab
 #+END_SRC
 
-** 25. How to execute jupyter book in terminal?
+** 25. How to change directory that pipenv will store environments?
+Set environment variable named ~WORKON_HOME~.
+
+** 26. How to execute jupyter book in terminal?
 #+BEGIN_SRC sh
 jupyter execute 03-Fetch-Jet-Fuel-and-insert.ipynb
 #+END_SRC
 
-** How to do read_sql() with dynamic table name & ?
+** 27. How to do read_sql() with dynamic table name & ?
 #+BEGIN_SRC python
   import pandas as pd
 

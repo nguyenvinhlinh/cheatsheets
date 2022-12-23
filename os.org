@@ -225,4 +225,14 @@ nautilus --browser
 
 ** How to get current zone with firewall-cmd?
 
+** How to get date/time from cmd?
+~-u~ is for UTC, ignore this flag to get curernt datetime in local timezone
+#+BEGIN_SRC sh
+$ date +'%Y-%m-%d %H:%M:%S.%N' -u
+2022-12-16 02:00:28.311535408
+
+$ date +'%Y-%m-%d %H:%M:%S' -u
+2022-12-16 02:01:31
+#+END_SRC
+
 * KEYSCAN ISSUE gather all public key or not ??????
