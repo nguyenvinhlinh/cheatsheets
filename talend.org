@@ -23,5 +23,6 @@ System.out.println(c);
 
 #+CAPTION: tMap between tDBInput(Oracle) and tOutput(PostgreSQL)
 #+NAME:   fig:001.png
-#+ATTR_HTML: :width 300px
+#+ATTR_ORG: :width 1000
 [[./images/talend/001.png]]
+
