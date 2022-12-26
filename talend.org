@@ -9,3 +9,19 @@ context.max_updated_date = input_row.max_updated_date;
 String c = TalendDate.formatDate("yyyy-MM-dd HH:mm:ss.SSS", context.max_updated_date);
 System.out.println(c);
 #+END_SRC
+
+** ETL CLOB from OracleDB to PostgreSQL BYTEA?
+- Oracle tDBInput:
+  - Type: byte[]
+  - DB Type: CLOB
+
+- Postgresql tDBOutput:
+  - Type: byte[]
+  - DB Type: BYTEA
+
+- tMap, use byte[] for column type.
+
+#+CAPTION: tMap between tDBInput(Oracle) and tOutput(PostgreSQL)
+#+NAME:   fig:001.png
+#+ATTR_HTML: :width 300px
+[[./images/talend/001.png]]
