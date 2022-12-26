@@ -26,3 +26,18 @@ System.out.println(c);
 #+ATTR_ORG: :width 1000
 [[./images/talend/001.png]]
 
+
+* How to ETL from JSON column to JSON column?
+- Source column: In the talend, source column type is ~String~, source db column type is ~Varchar~
+- Target column: In the talend, target column type is ~String~, target db column type is ~Varchar~
+
+In the ~tDBOutput~, go to ~Advanced settings~, and create an additional column.
+
+- Name: column name which you want to be store in jsonb
+- Data type: JSONB
+- SQL Expression: ~?::json~
+- Position: Replace
+- Reference column: sourced column name which is jsonb
+
+#+ATTR_ORG: :width 1000
+[[./images/talend/002.png]]
