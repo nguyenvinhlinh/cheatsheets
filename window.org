@@ -1,4 +1,3 @@
-
 ** How to info of package?
 
 #+BEGIN_SRC bat
@@ -27,4 +26,12 @@ PowerShell -ExecutionPolicy Unrestricted
 - It will open the PowerShell window. Now enter the below command and hit Enter key.
 #+BEGIN_SRC bat
 Get-AppXPackage -AllUsers |Where-Object {$_.InstallLocation -like "*SystemApps*"} | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+#+END_SRC
+
+** How to do Line Continuation in PowerShell?
+Add <SPACE> and <BACKTICK>
+#+BEGIN_SRC ps1
+A REALLY LONG COMMAND LINE `
+ANOTHER LONG COMMAND LINE `
+LAST LINE
 #+END_SRC
