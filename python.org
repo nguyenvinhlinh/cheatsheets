@@ -136,10 +136,27 @@ export WORKON_HOME=/mnt/d/.virtualenvs
 
 ** Snippet for calculating time interval
 #+BEGIN_SRC python
-  import time
+import time
 
-  start_time = time.time()
-  end_time = time.time()
-  interval  = end_time - start_time
-  print(f"Finished after {interval:.2f}")
+start_time = time.time()
+end_time = time.time()
+interval  = end_time - start_time
+print(f"Finished after {interval:.2f}")
+#+END_SRC
+
+** Python f-string format datetime
+#+BEGIN_SRC python
+import datetime
+
+now = datetime.datetime.now()
+
+print(f'{now:%Y-%m-%d %H:%M}')
+#+END_SRC
+
+** Python f-string format floats
+#+BEGIN_SRC python
+val = 12.3
+
+print(f'{val:.2f}')
+print(f'{val:.5f}')
 #+END_SRC
