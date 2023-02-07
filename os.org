@@ -235,4 +235,9 @@ $ date +'%Y-%m-%d %H:%M:%S' -u
 2022-12-16 02:01:31
 #+END_SRC
 
+** How to know if OS using XORG or Wayland as display server?
+#+BEGIN_SRC sh
+echo $XDG_SESSION_TYPE
+#+END_SRC
+
 * KEYSCAN ISSUE gather all public key or not ??????
