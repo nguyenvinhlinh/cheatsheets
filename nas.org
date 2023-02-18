@@ -1,0 +1,4 @@
+** How to play audio codec named eac3 ?
+#+BEGIN_SRC sh
+curl https://raw.githubusercontent.com/AlexPresso/VideoStation-FFMPEG-Patcher/main/patcher.sh | bash
+#+END_SRC
