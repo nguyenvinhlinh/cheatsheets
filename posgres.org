@@ -76,5 +76,15 @@ psql < dumpsql.sql
 SELECT setval('table_id_seq', (SELECT MAX(id) FROM table));
 #+END_SRC
 
+** How to check vacum status?
+#+BEGIN_SRC sql
+SELECT heap_blks_scanned/cast(heap_blks_total as numeric)*100 as heap_blks_percent, progress.*, activity.query
+FROM pg_stat_progress_vacuum AS progress
+INNER JOIN pg_stat_activity AS activity ON activity.pid = progress.pid;
+#+END_SRC
+
+Reference: https://dba.stackexchange.com/a/245163
+
+
 pg_dump --file schema_odm_cusdec_20190603_183100.sql --data-only --host 127.0.0.1 --port 5432 --username nguyenvinhlinh --verbose --format=p --schema "odm_cusdec" "risk_management_system_dev
 psql -h 127.0.0.1 -p 5432 -d risk_management_system_dev -U nguyenvinhlinh < ~/Dropbox/Projects/MexicoRMS-Demo/SQL/public/schema_public_20190529-023200.sql
