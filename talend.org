@@ -27,7 +27,7 @@ System.out.println(c);
 [[./images/talend/001.png]]
 
 
-* How to ETL from JSON column to JSON column?
+** How to ETL from JSON column to JSON column?
 - Source column: In the talend, source column type is ~String~, source db column type is ~Varchar~
 - Target column: In the talend, target column type is ~String~, target db column type is ~Varchar~
 
@@ -41,3 +41,19 @@ In the ~tDBOutput~, go to ~Advanced settings~, and create an additional column.
 
 #+ATTR_ORG: :width 1000
 [[./images/talend/002.png]]
+
+** Snippet to select records by timestamp column
+#+BEGIN_SRC java
+"SELECT * FROM TABLE_NAME WHERE UPDATED_DATE > TO_TIMESTAMP('" +
+TalendDate.formatDate("yyyy-MM-dd HH:mm:ss.SSS000", context.max_updated_date) +
+"', 'YYYY-MM-DD HH24:MI:SS.FF ') OR CREATED_DATE > TO_TIMESTAMP('" +
+TalendDate.formatDate("yyyy-MM-dd HH:mm:ss.SSS000", context.max_updated_date) +
+"', 'YYYY-MM-DD HH24:MI:SS.FF ')"
+#+END_SRC
+
+** Snippet to select max_updated_date
+#+BEGIN_SRC java
+"select coalesce (max(\"UPDATED_DATE\"), '" +
+TalendDate.formatDate("yyyy-MM-dd HH:mm:ss.SSS000", context.max_updated_date) +
+"'::timestamp ) as max_updated_date from \"TABLE_NAME\" tdd;"
+#+END_SRC
