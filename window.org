@@ -35,3 +35,9 @@ A REALLY LONG COMMAND LINE `
 ANOTHER LONG COMMAND LINE `
 LAST LINE
 #+END_SRC
+
+** Where is startup script directory?
+Go to ~RUN~ program and type
+#+BEGIN_SRC text
+shell:startup
+#+END_SRC
