@@ -93,3 +93,8 @@ VACUUM (FULL, VERBOSE) public."TABLE_NAME";
 
 pg_dump --file schema_odm_cusdec_20190603_183100.sql --data-only --host 127.0.0.1 --port 5432 --username nguyenvinhlinh --verbose --format=p --schema "odm_cusdec" "risk_management_system_dev
 psql -h 127.0.0.1 -p 5432 -d risk_management_system_dev -U nguyenvinhlinh < ~/Dropbox/Projects/MexicoRMS-Demo/SQL/public/schema_public_20190529-023200.sql
+
+** How to commend on table's columns?
+#+BEGIN_SRC sql
+COMMENT ON COLUMN public.TABLE_NAME_HERE."type" IS 'YOUR_COMMENT_HERE';
+#+END_SRC
