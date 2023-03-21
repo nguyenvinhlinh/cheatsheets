@@ -41,3 +41,10 @@ Go to ~RUN~ program and type
 #+BEGIN_SRC text
 shell:startup
 #+END_SRC
+
+In addition, there are two method.
+#+BEGIN_SRC text
+shell:startup (the currently logged in user.)
+
+shell:common startup (global, all users on the system.)
+#+END_SRC
