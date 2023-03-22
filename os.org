@@ -194,6 +194,25 @@ systemctl list-units --type=mount
 systemctl daemon-reload
 #+END_SRC
 
+** How to fix auto-mount issue due to network connection?
+In this directory ~/etc/NetworkManager/dispatcher.d~, create a file named ~mount-nas-volumes.sh~ with the
+following content.
+#+BEGIN_SRC bash
+#!/bin/bash
+
+INTERFACE="$1"
+STATUS="$2"
+
+if [ "$STATUS" = "up" ]; then
+    mount -a
+fi
+#+END_SRC
+
+After that, set the file executable
+#+BEGIN_SRC bash
+chmod +x mount-nas-volumes.sh
+#+END_SRC
+
 ** How to add L2TP module to network manager to support VPN L2TP?
 #+BEGIN_SRC sh
 sudo dnf install xl2tpd
