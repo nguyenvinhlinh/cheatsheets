@@ -8,4 +8,5 @@
   sudo dnf install -y java-1.8.0-openjdk-devel
   sudo dnf install -y libiodbc unixODBC.x86_64 erlang-odbc.x86_64;
   sudo dnf install -y libxslt fop;
+  sudo dnf install inotify-tools;
 #+END_SRC
