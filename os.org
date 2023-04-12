@@ -259,4 +259,12 @@ $ date +'%Y-%m-%d %H:%M:%S' -u
 echo $XDG_SESSION_TYPE
 #+END_SRC
 
+** How to make gif from image?
+
+#+BEGIN_SRC bash
+sudo dnf install ImageMagick
+convert -resize 640x480 -delay 0 -loop 0 ./0001/*.png 0001.gif
+#+END_SRC
+
+
 * KEYSCAN ISSUE gather all public key or not ??????

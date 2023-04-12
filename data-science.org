@@ -344,3 +344,29 @@ jupyter execute 03-Fetch-Jet-Fuel-and-insert.ipynb
   sql = sql.format(**df_params)
   df = pd.read_sql(sql, con=engine, params=df_params)
 #+END_SRC
+
+** 28. How to make plot image of each epoch?
+This is a quick snippet to make image for each epoch.
+This script handle prefix-zero to avoid misorder image while making gif.
+#+BEGIN_SRC python
+  def add_prefix_zero(number, zero_count):
+    return "{0:0{1}d}".format(number, zero_count)
+
+  def save_plot(model, epoch):
+      sns.set(style='whitegrid')
+      sns.lineplot(x=x_input_list, y= model(y_output_list).detach(), color='r')
+      sns.scatterplot(x=x_input_list, y=y_output_noise_list)
+      plt.ylabel("Y axis")
+      plt.xlabel("X axis")
+      plt.title(f"Epoch {epoch}")
+
+      file_name = f"model_{add_prefix_zero(epoch, 4)}.png"
+      plt.savefig(f"../images/0001/{file_name}")
+      plt.clf()
+#+END_SRC
+
+After that, a gif file can be make with this command.
+#+BEGIN_SRC bash
+sudo dnf install ImageMagick
+convert -resize 640x480 -delay 0 -loop 0 ./0001/*.png 0001.gif
+#+END_SRC
