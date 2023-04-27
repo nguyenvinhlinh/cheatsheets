@@ -83,3 +83,25 @@ volumes:
 #+BEGIN_SRC sh
 docker run -it --entrypoint /bin/bash [docker_image]
 #+END_SRC
+
+** How to fix docker, iptable error?
+example log:
+
+#+BEGIN_SRC text
+$ docker-compose restart
+[+] Running 1/1
+⠼ Container traefik Restarting 11.5s Error response from daemon: Cannot restart container 908f25f3f53926d138145c2ed993f986eb8ae15cba636bd709748ba02a4fd12b:
+  driver failed programming external connectivity on endpoint traefik (5952f70650c5f8da4f6951661f65c1abdb9a2372b33f1a5c424b5680f00e2180):
+  (iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 8080 -j DNAT --to-destination 172.18.0.3:8080 ! -i br-3f0534595f4b:
+  iptables: No chain/target/match by that name. (exit status 1))
+#+END_SRC
+
+to solve this problem, just execute the following commands:
+#+BEGIN_SRC sh
+# Clear all chains
+$ sudo iptables -t filter -F
+$ sudo iptables -t filter -X
+
+# Restart Docker Service
+systemctl restart docker
+#+END_SRC
