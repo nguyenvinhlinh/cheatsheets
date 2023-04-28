@@ -266,5 +266,17 @@ sudo dnf install ImageMagick
 convert -resize 640x480 -delay 0 -loop 0 ./0001/*.png 0001.gif
 #+END_SRC
 
+** How to remove journalctl log?
+- To check the size of journalctl log.
+#+BEGIN_SRC shell
+$ du -hs /var/log/journal  # option 1
+$ journalctl --disk-usage  # option 2
+#+END_SRC
+
+- To remove log
+#+BEGIN_SRC shell
+$ journalctl --vaccum-size 100M # -- Reduce disk usage below specified size (100MB)
+$ journalctl --vaccum-time 7d    # -- Remove journal files older than specified time (7 days)
+#+END_SRC
 
 * KEYSCAN ISSUE gather all public key or not ??????
