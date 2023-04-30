@@ -105,3 +105,26 @@ $ sudo iptables -t filter -X
 # Restart Docker Service
 systemctl restart docker
 #+END_SRC
+
+** How to build docker image and get file from it.
+Step 1: Prepare dockerfile, this is just an example.
+
+#+BEGIN_SRC text
+from ruby:3.2.0 as build
+
+WORKDIR /opt/nguyenvinhlinh.github.io
+COPY . /opt/nguyenvinhlinh.github.io
+
+RUN bundle config set --local deployment true
+RUN bundle install
+RUN bundle exec jekyll build --destination=/opt/nguyenvinhlinh.github.io/dist     <----
+
+FROM scratch as release                                                           <----
+COPY --from=build  /opt/nguyenvinhlinh.github.io/dist /                           <----
+#+END_SRC
+
+Step 2: Execute ~docker build~ command, it will copy the whole directory of stage named `release`.
+#+BEGIN_SRC shell
+$ docker build -f Dockerfile --target=release --output type=local,dest=DESTINATION_PATH_ON_HOST_MACHINE .
+#+END_SRC
+Now, check out the ~DESTINATION_PATH_ON_HOST_MACHINE~ path on the host machine.
