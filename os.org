@@ -279,4 +279,55 @@ $ journalctl --vaccum-size 100M # -- Reduce disk usage below specified size (100
 $ journalctl --vaccum-time 7d    # -- Remove journal files older than specified time (7 days)
 #+END_SRC
 
+** How to add dns for fedora in terminal?
+- Step 1: get a list of network interface and its dns status
+#+BEGIN_SRC shell
+$ resolvectl status
+
+Global
+       Protocols: LLMNR=resolve -mDNS -DNSOverTLS DNSSEC=no/unsupported
+resolv.conf mode: foreign
+
+Link 2 (eth0)
+    Current Scopes: DNS LLMNR/IPv4 LLMNR/IPv6
+         Protocols: +DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+Link 3 (eth1)
+    Current Scopes: DNS LLMNR/IPv4 LLMNR/IPv6
+         Protocols: +DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+Link 4 (docker0)
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+#+END_SRC
+
+- Step 2: Add dns to network interface
+
+#+BEGIN_SRC shell
+$ resolvectl dns eth0 1.1.1.1 8.8.8.8 8.8.4.4
+$ resolvectl dns eth1 1.1.1.1 8.8.8.8 8.8.4.4
+$ resolvectl status
+
+Global
+       Protocols: LLMNR=resolve -mDNS -DNSOverTLS DNSSEC=no/unsupported
+resolv.conf mode: foreign
+
+Link 2 (eth0)
+    Current Scopes: DNS LLMNR/IPv4 LLMNR/IPv6
+         Protocols: +DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+Current DNS Server: 1.1.1.1
+       DNS Servers: 1.1.1.1 8.8.8.8 8.8.4.4
+
+Link 3 (eth1)
+    Current Scopes: DNS LLMNR/IPv4 LLMNR/IPv6
+         Protocols: +DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+Current DNS Server: 1.1.1.1
+       DNS Servers: 1.1.1.1 8.8.8.8 8.8.4.4
+
+Link 4 (docker0)
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+#+END_SRC
+
+
 * KEYSCAN ISSUE gather all public key or not ??????
