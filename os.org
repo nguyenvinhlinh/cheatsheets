@@ -329,5 +329,22 @@ Current Scopes: none
      Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
 #+END_SRC
 
+** How to fix boot error with nvme?
+Reason: The Autonomous Power State Transitions(APST) was causing the freezes.
+
+Step 1: Go to rescue mode and choose boot entry that work
+Step 2: Edit ~/etc/default/grub~, append ~nvme_core.default_ps_max_latency_us=0~ to ~GRUB_CMDLINE_LINUX="..."~
+Step 3: Update grub, then reboot
+#+BEGIN_SRC sh
+# For Fedora, Arch Linux, etc.
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+# For Ubuntu, Debian, Linux Mint, etc. (debian-based)
+sudo update-grub
+#+END_SRC
+
+references:
+- Random Freezes in Kubuntu 20.04, https://askubuntu.com/a/1274020
+- Fixing NVME SSD Problems On Linux, https://tekbyte.net/fixing-nvme-ssd-problems-on-linux/
 
 * KEYSCAN ISSUE gather all public key or not ??????
