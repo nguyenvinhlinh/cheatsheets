@@ -347,4 +347,18 @@ references:
 - Random Freezes in Kubuntu 20.04, https://askubuntu.com/a/1274020
 - Fixing NVME SSD Problems On Linux, https://tekbyte.net/fixing-nvme-ssd-problems-on-linux/
 
+** How to assign particular private key for ssh?
+#+BEGIN_SRC language
+
+Host myshortname realname.example.com
+    HostName realname.example.com
+    IdentityFile ~/.ssh/realname_rsa # private key for realname
+    User remoteusername
+
+Host myother realname2.example.org
+    HostName realname2.example.org
+    IdentityFile ~/.ssh/realname2_rsa  # different private key for realname2
+    User remoteusername
+#+END_SRC
+
 * KEYSCAN ISSUE gather all public key or not ??????
