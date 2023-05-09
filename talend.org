@@ -65,3 +65,9 @@ context.max_updated_date = input_row.max_updated_date;
 String c = TalendDate.formatDate("yyyy-MM-dd HH:mm:ss.SSS000", context.max_updated_date);
 System.out.println("[ETL_09][container] max_updated_date:" + c);
 #+END_SRC
+
+** Talend shortcut for window
+Talend Open Studio for Data Integration 8.0.1
+jdk path: ~C:\Program Files\Java\jdk-11\bin~
+Target: ~"C:\Program Files (x86)\TOS_DI-8.0.1\studio\TOS_DI-win-x86_64.exe" -vm "C:\Program Files\Java\jdk-11\bin"~
+Start in:  ~"C:\Program Files (x86)\TOS_DI-8.0.1\studio"~
