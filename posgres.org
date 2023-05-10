@@ -98,3 +98,15 @@ psql -h 127.0.0.1 -p 5432 -d risk_management_system_dev -U nguyenvinhlinh < ~/Dr
 #+BEGIN_SRC sql
 COMMENT ON COLUMN public.TABLE_NAME_HERE."type" IS 'YOUR_COMMENT_HERE';
 #+END_SRC
+
+** How to install postgresql client and setup dbeaver for dump/restore ?
+- Step 1: install ~postgresql~ client.
+#+BEGIN_SRC sh
+$ sudo dnf install postgresql -y
+#+END_SRC
+- Step 2: In terminal, find parent directory which contain ~pgsql~
+#+BEGIN_SRC sh
+$ which pgsql
+/usr/bin/pg_dump
+#+END_SRC
+- Step 2: In DBeaver, local client, add home, set home path to ~/usr/bin~
