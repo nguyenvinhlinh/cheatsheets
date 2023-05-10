@@ -23,13 +23,24 @@ alter user ABC encrypted password 'ABC_password'
    drop database database_name
    #+END_SRC
 ** Export the data from the database
+- File sql mode
   #+BEGIN_SRC shell
-  pg_dump -O -x db_name > output.sql
-  pg_dump -h 127.0.0.1 -p 15432 -d iea_dev -x db_name > file_export.sql
+    pg_dump -O -x db_name > output.sql
+    pg_dump -h 127.0.0.1 -p 15432 -d iea_dev -x db_name > file_export.sql
+  #+END_SRC
+
+- Dir mode
+  #+BEGIN_SRC sh
+    /usr/bin/pg_dump --verbose --host=127.0.0.1 --port=9155 --username=linh --format=d --file /home/nguyenvinhlinh/Temporary/database-backup/dump-202305110112 -n public db_name_here
   #+END_SRC
 ** Import the data to the databaes
+- File sql mode
   #+BEGIN_SRC shell
   psql db_name < output.sql
+  #+END_SRC
+- Dir mode
+  #+BEGIN_SRC sh
+  /usr/bin/pg_restore --verbose --host=127.0.0.1 --port=9155 --username=linh --format=d --dbname=DB_NAME_HERE /home/nguyenvinhlinh/Temporary/database-backup/dump-bahamas-etl-production-202305110112
   #+END_SRC
 ** View currrent database in psql
   #+BEGIN_SRC sql
