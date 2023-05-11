@@ -366,4 +366,9 @@ Host myother realname2.example.org
 while true; do date; sleep 5; done
 #+END_SRC
 
+** How to show key which is typed?
+#+BEGIN_SRC sh
+$ showkey -a
+#+END_SRC
+
 * KEYSCAN ISSUE gather all public key or not ??????
