@@ -25,3 +25,4 @@ In the following example, it is trying to extract an environment variable named 
 ${env:LOG_DIR:-/tmp/test-log}
 #+END_SRC
 Schema ~${env:VARIABLE_NAME:-DEFAULT_VALUE}~.
+~:-~, it is is called *variable default value delimiter*
