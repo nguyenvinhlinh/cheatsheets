@@ -8,3 +8,20 @@
 | jar    | jar creates an archive for classes and resources, and                      |
 |        | can manipulate or restore individual classes or resources from an archive. |
 |--------+----------------------------------------------------------------------------|
+
+** What is the difference between ~System properties~ and ~Environment variables~?
+- ~System properties~ are set on the Java command line using the ~-Dpropertyname=value~ syntax.
+  They can also be added at runtime using ~System.setProperty(String key, String value)~ or via the various ~System.getProperties().load()~ methods.
+  To get a specific system property you can use ~System.getProperty(String key)~ or ~System.getProperty(String key, String default)~.
+
+- ~Environment variables~ are set in the OS, e.g. in Linux export ~HOME=/home/nguyenvinhlinh~.
+  To get a specific environment variable you can use ~System.getenv(String name)~.
+
+Credit: https://stackoverflow.com/a/7054981
+
+** How to extract environment variable for ~log4j2.xml~ in ~src/main/resources~?
+In the following example, it is trying to extract an environment variable named ~LOG_DIR~ with default value is ~/tmp/test-log~
+#+BEGIN_SRC text
+${env:LOG_DIR:-/tmp/test-log}
+#+END_SRC
+Schema ~${env:VARIABLE_NAME:-DEFAULT_VALUE}~.
