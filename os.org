@@ -371,4 +371,9 @@ while true; do date; sleep 5; done
 $ showkey -a
 #+END_SRC
 
+** How to refresh gnome ~app.desktop~?
+#+BEGIN_SRC sh
+update-desktop-database ~/.local/share/applications
+#+END_SRC
+
 * KEYSCAN ISSUE gather all public key or not ??????
