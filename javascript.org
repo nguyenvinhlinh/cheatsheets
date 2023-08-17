@@ -1,4 +1,4 @@
-** How to export a module 
+** How to export a module
 #+BEGIN_SRC javascript
 export { name1, name2, …, nameN };
 export { variable1 as name1, variable2 as name2, …, nameN };
@@ -26,3 +26,13 @@ import defaultMember, { member [ , [...] ] } from "module-name";
 import defaultMember, * as name from "module-name";
 import "module-name";
 #+END_SRC
+
+** How to run npm module command?
+#+BEGIN_SRC sh
+npm exec MODULE MODULE_METHOD
+#+END_SRC
+
+** How to run npm module command with argument?
+#+BEGIN_SRC sh
+npm exec MODULE MODULE_METHOD -- -arg_1 arg_1_value
+#+END_SRC`
