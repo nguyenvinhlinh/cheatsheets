@@ -311,6 +311,13 @@ top_p, top_class = prob.topk(5, dim = 1)
 #+END_SRC
 
 ** 24. How to setup jupyter lab?
+- Dependencies
+#+BEGIN_SRC sh
+  sudo dnf install python3-tkinter -y;
+  sudo dnf install readline readline-devel -y;
+  sudo dnf install sqlite sqlite-devel -y;
+#+END_SRC
+- Setup dir & install jupyter lab
 #+BEGIN_SRC sh
   $ mkdir PROJECT_NAME && cd PROJECT_NAME
   $ pipenv install
@@ -369,4 +376,15 @@ After that, a gif file can be make with this command.
 #+BEGIN_SRC bash
 sudo dnf install ImageMagick
 convert -resize 640x480 -delay 0 -loop 0 ./0001/*.png 0001.gif
+#+END_SRC
+
+** 29. How to find row with nan value, pandas?
+- All columns.
+#+BEGIN_SRC python
+mod_df[mod_df.isna().any(axis=1)]
+#+END_SRC
+
+- Particular columns
+#+BEGIN_SRC python
+mod_df[mod_df[COLUMN_NAME'].isna()]
 #+END_SRC

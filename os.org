@@ -376,4 +376,17 @@ $ showkey -a
 update-desktop-database ~/.local/share/applications
 #+END_SRC
 
+** How to add static route with `nmcli` with tunnel interface (globalprotect vpn)?
+After we got access via vpn, we grant new IP, in this case, it's `172.16.20.123`
+Because, it's a tunnel, we use 172.16.20.123 as gateway.
+#+BEGIN_SRC sh
+  $ nmcli connection edit gpd0
+  # go to nmcli interactive config editor.
+  set ipv4.routes 172.17.xxx.xxx/32 172.16.20.123
+  set ipv4.routes 172.19.xxx.xxx/32 172.16.20.123
+  set ipv4.gateway 172.16.20.123
+  save persistent
+  quit
+#+END_SRC
+
 * KEYSCAN ISSUE gather all public key or not ??????
