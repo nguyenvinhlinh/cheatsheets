@@ -53,3 +53,6 @@ shell:common startup (global, all users on the system.)
 Go to  ~Start~ -> ~RUN~
 - ~shell:common startup~: global setting
 - ~shell:startup~: user setting
+
+** How to type next line in long bat script?
+Use caret ~^~
