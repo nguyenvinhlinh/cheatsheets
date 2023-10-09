@@ -48,3 +48,8 @@ shell:startup (the currently logged in user.)
 
 shell:common startup (global, all users on the system.)
 #+END_SRC
+
+** Startup program directory?
+Go to  ~Start~ -> ~RUN~
+- ~shell:common startup~: global setting
+- ~shell:startup~: user setting
