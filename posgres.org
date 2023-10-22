@@ -40,8 +40,14 @@ alter user ABC encrypted password 'ABC_password'
   #+END_SRC
 - Dir mode
   #+BEGIN_SRC sh
-  /usr/bin/pg_restore --verbose --host=127.0.0.1 --port=9155 --username=linh --format=d --dbname=DB_NAME_HERE /home/nguyenvinhlinh/Temporary/database-backup/dump-bahamas-etl-production-202305110112
+  /usr/bin/pg_restore --verbose --host=127.0.0.1 --port=9155 --username=linh --format=d --dbname=DB_NAME_HERE /home/nguyenvinhlinh/Temporary/database-backup/dump-etl
   #+END_SRC
+- Custom mode
+  #+BEGIN_SRC sh
+  /usr/bin/pg_restore --verbose --host=127.0.0.1 --port=9155 --username=linh --format=c --dbname=DB_NAME_HERE /home/nguyenvinhlinh/Temporary/database-backup/dump-etl
+  #+END_SRC
+
+
 ** View currrent database in psql
   #+BEGIN_SRC sql
   select * from current_database();
