@@ -1,0 +1,7 @@
+** How to reset nvidia gpu?
+- ~--reset-gpu-clocks~, ~-rgc~
+- ~--reset-memory-clocks~, ~-rmc~
+#+BEGIN_SRC sh
+sudo nvidia-smi --reset-gpu-clocks
+sudo nvidia-smi --reset-memory-clocks
+#+END_SRC
