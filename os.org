@@ -389,4 +389,11 @@ Because, it's a tunnel, we use 172.16.20.123 as gateway.
   quit
 #+END_SRC
 
+** How to get IP with given network interface?
+
+#+BEGIN_SRC language
+$ ip -f inet addr show eth0 | awk '/inet / {print $2}' | cut -d/ -f1
+192.168.1.201
+#+END_SRC
+
 * KEYSCAN ISSUE gather all public key or not ??????
