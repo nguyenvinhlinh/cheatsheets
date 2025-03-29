@@ -146,3 +146,13 @@ Ecto.Adapters.SQL.query!(
   MyApp.Repo, "SELECT * FROM users where name = $1", ["Hubert"]
 )
 #+END_SRC
+
+** How to render partial html.heex in `app.html.heex`, ex: `_app_footer.html.heex`
+Given that there is a file named `_app_footer.html.heex_` located in the `...lib/....web/components/layouts/`,
+You can easily render this partial html like this.
+#+BEGIN_SRC html
+<!-- app.html.heex -->
+<._app_footer />
+#+END_SRC
+
+The old method using `render` will not work, please read this [https://hexdocs.pm/phoenix_view/Phoenix.View.html#module-migrating-to-phoenix-component](https://hexdocs.pm/phoenix_view/Phoenix.View.html#module-migrating-to-phoenix-component)
