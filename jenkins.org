@@ -1,0 +1,2 @@
+* What is jenkins github webhook?
+`https://JENKINS_DOMAIN/github-webhook/`
