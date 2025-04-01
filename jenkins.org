@@ -2,4 +2,4 @@
 `https://JENKINS_DOMAIN/github-webhook/`
 
 * Where is $JENKIN_HOME
-`/var/lib/jenkins`
+~/var/lib/jenkins~
