@@ -1,2 +1,5 @@
 * What is jenkins github webhook?
 `https://JENKINS_DOMAIN/github-webhook/`
+
+* Where is $JENKIN_HOME
+`/var/lib/jenkins`
