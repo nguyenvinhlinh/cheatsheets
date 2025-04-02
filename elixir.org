@@ -65,3 +65,12 @@ separated process which store state. The state can be share among another proces
 
 ** What is the order of start_link and init in GenServer.
    start_link/3 comes first then init/1. The second argument of start_link/3 will be then passed to init/1.
+
+** How to get string of a Process
+
+#+BEGIN_SRC elixir
+  {:ok, pid} = GenServer.start_link(__MODULE__, nil, name: __MODULE__)
+  pid_string = pid
+  |> :erlang.pid_to_list()
+  |> to_string()
+#+END_SRC
