@@ -394,3 +394,8 @@ Because, it's a tunnel, we use 172.16.20.123 as gateway.
 
 
 * KEYSCAN ISSUE gather all public key or not ??????
+
+** How to know if Secure Boot enabled?
+#+BEGIN_SRC shell
+mokutil --sb-state
+#+END_SRC
