@@ -3,3 +3,24 @@
 
 * Where is $JENKIN_HOME
 ~/var/lib/jenkins~
+
+* How to go to shell with jenkins user
+
+~sudo su -s /bin/zsh jenkins~
+
+OR
+
+~sudo su -s /bin/bash jenkins~github~
+
+* Error: stderr: No ED25519 host key is known for github.com and you have requested strict checking.
+
+Reason: ~known_hosts~ for github.com not found
+Solution: add github public key to ~known_hosts~
+
+
+
+#+BEGIN_SRC shell
+  $ cd /var/lib/jenkins/; # Go to jenkins home
+  $ mkdir .ssh            # Create .ssh directory
+  $ ssh-keyscan github.com >> /var/lib/jenkins/.ssh/known_hosts # Append github public key to known_hosts file.
+#+END_SRC

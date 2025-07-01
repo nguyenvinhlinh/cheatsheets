@@ -7,3 +7,13 @@ sudo systemctl start nginx
 #+BEGIN_SRC sh
 /etc/nginx
 #+END_SRC
+
+** How to test config
+#+BEGIN_SRC sh
+nginx -t
+#+END_SRC
+
+** How to restart
+#+BEGIN_SRC sh
+nginx -s reload
+#+END_SRC

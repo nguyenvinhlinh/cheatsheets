@@ -1,13 +1,29 @@
 ** How to find package which provide particular library name
-   #+BEGIN_SRC shell
-   dnf provides libncurses.so.5 
-   #+END_SRC
-** How to know where package installed? 
 #+BEGIN_SRC shell
-rpm -ql package-name
+$ dnf provides libncurses.so.5
+#+END_SRC
+
+** How to know where package installed?
+#+BEGIN_SRC shell
+$ rpm -ql package-name
 #+END_SRC
 
 ** How to find versions of package?
-   dnf search package_name --showduplicates
+#+BEGIN_SRC shell
+$ dnf search package_name --showduplicates
+#+END_SRC
+
 ** How to search/install a package from a particular repo
-   dnf repo-packages repo_name search/install package_name
+#+BEGIN_SRC sh
+$ dnf repo-packages repo_name search/install package_name
+#+END_SRC
+
+** How to update dnf metadata?
+#+BEGIN_SRC shell
+$ dnf makecache
+#+END_SRC
+
+** How to clean download packages and metadata?
+#+BEGIN_SRC shell
+$ dnf clean all
+#+END_SRC
