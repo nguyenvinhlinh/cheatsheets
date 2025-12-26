@@ -141,6 +141,11 @@ sudo setcap CAP_NET_BIND_SERVICE=+eip path_to_binary_file
   subscription-manager refresh;
   subscription-manager attach;
 
+** How to view mountable directory (nfs protocol) from a host/ip?
+#+BEGIN_SRC sh
+showmount -e IP
+#+END_SRC
+
 ** How to mount a network drive using NFS protocol?
 #+BEGIN_SRC sh
   mkdir /mnt/NAS/disk_1;
@@ -151,6 +156,11 @@ sudo setcap CAP_NET_BIND_SERVICE=+eip path_to_binary_file
    Edit file /etc/fstab, append an entry
 #+BEGIN_SRC text
 192.168.x.x:/directory_X /mnt/NAS/disk_1 nfs defaults 0 0
+#+END_SRC
+
+** How to view mountable directory (CIFS protocol) from a host/ip?
+#+BEGIN_SRC sh
+smbclient -L //192.168.x.x -U username
 #+END_SRC
 
 ** How to mount a network drive using CIFS protocol?
