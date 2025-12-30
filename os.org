@@ -169,6 +169,8 @@ smbclient -L //192.168.x.x -U username
   mount --types cifs -o uid=1000,gid=1000,vers=3,credentials=/home/yourhome/.nasauth //192.168.x.x/directory_X /mnt/NAS/disk_1;
 #+END_SRC
 
+If `NAS server` is unraid, data need to move from `pool` to `array`. It's a must to use option `_netdev,noserverino` due to change in inode!
+
 It's important to append `uid` and `gid`, these attributes will be used to assign ownership of mounted directory. After mounting, check ownership with following command `ls -lah`.
 
 To extract `uid` and `gid` numbers, use the following command.
